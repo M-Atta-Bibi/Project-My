@@ -1,5 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const LinkDetails = styled(Link)`
+  text-decoration: none;
+`;
 export const Container = styled.div`
   background: var(--white-color);
   border-radius: 12px;
