@@ -38,7 +38,7 @@ export const InputStyles = styled.div`
   }
   button {
     position: absolute;
-    right: 12px;
+    inset-inline-end: 15px;
     top: 39px;
     background-color: transparent;
     color: var(--gray-text-400);

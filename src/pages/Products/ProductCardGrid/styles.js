@@ -23,6 +23,18 @@ export const ImgBox = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
+  .form-check-input {
+    display: none !important;
+  }
+  .form-check-label svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    stroke-width: 1;
+  }
 `;
 export const Badge = styled.span`
   position: absolute;

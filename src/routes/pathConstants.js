@@ -6,5 +6,6 @@ const pathConstants = {
   Quiz: "/Quiz",
   Register: "/Register",
   Details: "/Products/:id",
+  Favorites: "/Favorites",
 };
 export default pathConstants;

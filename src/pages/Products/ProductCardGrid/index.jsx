@@ -17,9 +17,18 @@ import {
   Title,
 } from "./styles";
 import { Link } from "react-router-dom";
+import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import { FaHeart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../../store/favorites/favoritesSlice";
 const Grid = ({ Product, onAddToCart, showDetails }) => {
   const { t, i18n } = useTranslation();
-
+  const favorites = useSelector((state) => state.favorite.Favorites);
+  const dispatch = useDispatch();
+  const isFavorites = favorites.some((item) => item.id === Product.id);
   return (
     <LinkDetails to={`/Products/${Product.id}`}>
       <Container>
@@ -27,6 +36,20 @@ const Grid = ({ Product, onAddToCart, showDetails }) => {
           {showDetails && (
             <>{Product.badge && <Badge> {Product.badge}</Badge>}</>
           )}
+          <span onClick={(e) => e.stopPropagation()}>
+            <Checkbox
+              id={Product.id}
+              fieldLabel={<FaHeart color={isFavorites ? "red" : "white"} />}
+              name="favorites"
+              fieldValue={isFavorites}
+              onChangeFunction={(checked) => {
+                checked
+                  ? dispatch(addToFavorites(Product))
+                  : dispatch(removeFromFavorites(Product));
+              }}
+            />
+          </span>
+
           {/*------------------------للمربع الابيض--------------------- */}
           <svg
             width="54"
