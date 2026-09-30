@@ -7,6 +7,7 @@ const ProductsPage = React.lazy(() => import("../pages/Products"));
 const QuizPage = React.lazy(() => import("../pages/Quiz"));
 const RegisterPage = React.lazy(() => import("../pages/Register"));
 const DetailsPage = React.lazy(() => import("../pages/Products/Details"));
+const FavoritesPage = React.lazy(() => import("../pages/Favorites"));
 const routes = [
   { path: pathConstants.Register, element: <RegisterPage /> },
   { path: pathConstants.Login, element: <LoginPage /> },
@@ -18,6 +19,7 @@ const routes = [
       { path: pathConstants.Products, element: <ProductsPage /> },
       { path: pathConstants.Quiz, element: <QuizPage /> },
       { path: pathConstants.Details, element: <DetailsPage /> },
+      { path: pathConstants.Favorites, element: <FavoritesPage /> },
     ],
   },
 ];

@@ -16,6 +16,7 @@ import LanguageSwitcher from "../language-switcher";
 import { useTranslation } from "react-i18next";
 import { getAccessToken, clearAccessToken } from "../../services/auth.storage";
 import pathConstants from "../../routes/pathConstants";
+import { FiShoppingBag } from "react-icons/fi";
 const Header = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,11 @@ const Header = () => {
             onClickFunction={toggleTheme}
           />
           <LanguageSwitcher />
+          <Button
+            className="LDm"
+            label={<FiShoppingBag />}
+            onClickFunction={() => navigate("/Favorites")}
+          />
         </Logo>
         <MenuIcon onClick={() => setIsOpen(!isOpen)}>
           <BsListUl />
