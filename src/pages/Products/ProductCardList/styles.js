@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 225px;
+  height: 100%;
   align-items: flex-start;
   padding: 12px;
   box-sizing: border-box;
@@ -30,7 +30,7 @@ export const ImgBox = styled.div`
 export const HeaderRow = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 `;
 export const Badge = styled.span`
   top: 12px;
@@ -45,13 +45,28 @@ export const Badge = styled.span`
 export const Price = styled.div`
   color: #10df0c;
   font-size: 18px;
-  span {
-    font-size: 12px;
-    color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  .form-check-input {
+    display: none !important;
+  }
+  .form-check-label svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 1;
+  }
+  .CoP {
+    display: flex;
+    p {
+      font-size: 12px;
+      color: #9ca3af;
+    }
   }
 `;
 export const Content = styled.div`
-  padding: 0 0 20px 20px;
+  padding-block-end: 20px;
+  padding-inline-start: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
