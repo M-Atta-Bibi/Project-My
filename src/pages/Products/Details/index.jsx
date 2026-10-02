@@ -71,12 +71,14 @@ const DetailsPage = () => {
     <>
       <Header />
       <Main>
-        <div className="containerLocation">
-          <p className="H">{t("Home")}</p>
-          <p className="N">/</p>
-          <p className="H">{t("Products")} </p>
-          <p className="N">/</p>
-          <p className="N">{CurrentProduct?.name}</p>
+        <div className="CoLoc">
+          <div className="containerLocation">
+            <p className="H">{t("Home")}</p>
+            <p className="N">/</p>
+            <p className="H">{t("Products")} </p>
+            <p className="N">/</p>
+            <p className="N">{CurrentProduct?.name}</p>
+          </div>
         </div>
         <ContainerDetailsPage>
           <div id="back">

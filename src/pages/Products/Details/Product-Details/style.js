@@ -7,7 +7,8 @@ export const ContainerCart = styled.div`
 `;
 export const ImgBox = styled.div`
   background-color: ${({ color }) => color || "#1e3aba"};
-  border-radius: 12px 0 0 12px;
+  border-end-start-radius: 12px;
+  border-start-start-radius: 12px;
   height: 578px;
   width: 100%;
   display: flex;
@@ -21,13 +22,16 @@ export const ImgBox = styled.div`
 `;
 export const Badge = styled.span`
   background-color: #10df0c;
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 12px;
   padding: 4px;
   border-radius: 8px;
 `;
 export const DataProduct = styled.div`
+  border-start-end-radius: 12px;
+  border-end-end-radius: 12px;
   padding: 32px;
+  background-color: var(--white-color);
   #first {
     background-color: #f2f4fa;
     border: 1px solid #d4d7e0;
@@ -36,19 +40,19 @@ export const DataProduct = styled.div`
     width: 73px;
     padding: 4px 12px;
     margin-bottom: 12px;
-    color: #323740;
+    color: var(--gray-text-400);
     font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   #second {
-    color: #323740;
+    color: var(--gray-text-400);
     font-size: 14px;
     margin-bottom: 16px;
   }
   #third {
-    color: #323740;
+    color: var(--gray-text-400);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 24px;
@@ -60,7 +64,7 @@ export const DataProduct = styled.div`
 
       padding: 0;
       li {
-        color: #323740;
+        color: var(--gray-text-400);
         font-size: 14px;
         font-weight: 475;
         margin-bottom: 8px;
@@ -76,7 +80,7 @@ export const DataProduct = styled.div`
     align-items: center;
     margin-bottom: 16px;
     p {
-      color: #8f96a3;
+      color: var(--gray-text-400);
       font-size: 14px;
       font-weight: 400;
     }
@@ -90,7 +94,7 @@ export const DataProduct = styled.div`
     margin-inline-end: 12px;
   }
   #minus {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     width: 37px;
     height: 37px;
     border: 1px solid #d4d7e0;
@@ -100,7 +104,7 @@ export const DataProduct = styled.div`
     cursor: pointer;
   }
   #plus {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     width: 37px;
     height: 37px;
     border: 1px solid #d4d7e0;
@@ -111,7 +115,7 @@ export const DataProduct = styled.div`
   }
 
   #reslute {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     width: 37px;
     height: 37px;
     border: 1px solid #d4d7e0;
@@ -128,7 +132,7 @@ export const DataProduct = styled.div`
   #ATC {
     background-color: var(--btn-green);
     font-weight: bold;
-    color: #ffffff;
+    color: var(--white-color);
     border: 1px solid #07d600;
     border-radius: 12px;
     width: 400px;
@@ -139,7 +143,7 @@ export const DataProduct = styled.div`
     }
   }
   #BN {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     color: #009600;
     font-weight: bold;
     border: 2px solid #009600;

@@ -2,6 +2,9 @@ import styled from "styled-components";
 export const Main = styled.div`
   margin: 0 auto;
   width: 100%;
+  .CoLoc {
+    background-color: var(--white-color);
+  }
   .containerLocation {
     margin: 0 auto;
     max-width: 1200px;

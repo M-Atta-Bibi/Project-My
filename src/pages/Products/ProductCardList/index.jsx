@@ -18,8 +18,18 @@ import {
   Title,
 } from "./styles";
 import { Link } from "react-router-dom";
+import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../../store/favorites/favoritesSlice";
+import { FaHeart } from "react-icons/fa";
 const List = ({ Product, onAddToCart }) => {
   const { t, i18n } = useTranslation();
+  const favorites = useSelector((state) => state.favorite.Favorites);
+  const dispatch = useDispatch();
+  const isFavorites = favorites.some((item) => item.id === Product.id);
   return (
     <LinkDetails to={`/Products/${Product.id}`}>
       <Container>
@@ -43,8 +53,25 @@ const List = ({ Product, onAddToCart }) => {
           <HeaderRow>
             {Product.badge && <Badge>{Product.badge}</Badge>}
             <Price>
-              ${Product.price}
-              <span>/mo </span>
+              <span onClick={(e) => e.stopPropagation()}>
+                <Checkbox
+                  id={Product.id}
+                  fieldLabel={
+                    <FaHeart color={isFavorites ? "red" : "#cbcbcb"} />
+                  }
+                  name="favorites"
+                  fieldValue={isFavorites}
+                  onChangeFunction={(checked) => {
+                    checked
+                      ? dispatch(addToFavorites(Product))
+                      : dispatch(removeFromFavorites(Product));
+                  }}
+                />
+              </span>
+              <div className="CoP">
+                ${Product.price}
+                <p>/mo</p>
+              </div>
             </Price>
           </HeaderRow>
           <Title> {Product.name}</Title>
