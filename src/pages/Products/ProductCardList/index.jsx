@@ -1,4 +1,12 @@
 import { useTranslation } from "react-i18next";
+import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import { FaHeart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../../store/favorites/favoritesSlice";
+
 import {
   Action,
   Add,
@@ -17,16 +25,9 @@ import {
   RiviewsCount,
   Title,
 } from "./styles";
-import { Link } from "react-router-dom";
-import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addToFavorites,
-  removeFromFavorites,
-} from "../../../store/favorites/favoritesSlice";
-import { FaHeart } from "react-icons/fa";
 
 const List = ({ Product, onAddToCart }) => {
+  // ال بروب ال بدي استقبلها من داتا
   const {
     id,
     price,
@@ -38,11 +39,16 @@ const List = ({ Product, onAddToCart }) => {
     name,
     rating,
   } = Product;
+
+  // Hooks
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
+
+  // State
   const favorites = useSelector((state) => state.favorite.Favorites);
   const dispatch = useDispatch();
   const isFavorites = favorites.some((item) => item.id === id);
+
   return (
     <LinkDetails to={`/Products/${id}`}>
       <Container>

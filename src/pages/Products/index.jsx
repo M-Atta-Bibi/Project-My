@@ -1,9 +1,12 @@
 import { BsGridFill, BsListUl } from "react-icons/bs";
-import { ProductsArray } from "../../Data/ProductsArray";
-import { ProductsArrayAR } from "../../Data/ProductsArrayAR";
 import Grid from "./ProductCardGrid";
 import List from "./ProductCardList";
 import { useEffect, useMemo, useState } from "react";
+import Footer from "../../Componets/Footer/Footer";
+import Header from "../../Componets/Header/Header";
+import { useTranslation } from "react-i18next";
+import { GetProducts } from "../../services/Products/products.service";
+import i18next from "i18next";
 import {
   Buttons,
   Container,
@@ -14,25 +17,17 @@ import {
   DisplayMode,
   NumberArray,
 } from "./styles";
-import Footer from "../../Componets/Footer/Footer";
-import Header from "../../Componets/Header/Header";
-import { useTranslation } from "react-i18next";
-import { GetProducts } from "../../services/Products/products.service";
-import i18next from "i18next";
 
 const Products = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Hooks
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
-  const ArrayUsed = () => {
-    if (i18n?.language === "ar") {
-      return ProductsArrayAR;
-    } else {
-      return ProductsArray;
-    }
-  };
-  const productArray = ArrayUsed();
+
+  //  UI/UX
+  const [loading, setLoading] = useState(true);
+
+  // States
+  const [data, setData] = useState([]);
   const [ViewMode, setViewMode] = useState("grid");
   const [SelectedCategory, setSelectedCategory] = useState("All");
   const Categories = [
@@ -43,26 +38,10 @@ const Products = () => {
     t("Robotics"),
     t("Security"),
   ];
-  {
-    /*---------------------------مشان نعرضها ب كونسل-------------------------------- */
-  }
-  const addToCart = (Product) => {
-    console.log(Product);
-  };
-  {
-    /*------------------------مشان ال فلترة و لعدم تكريرها اكثر من مرة------------- */
-  }
-  const FilterProducts = useMemo(() => {
-    return data?.filter(
-      (item) =>
-        SelectedCategory === "All" ||
-        item.category?.[activeLanguage] === SelectedCategory,
-    );
-  }, [SelectedCategory, activeLanguage, data]);
 
-  {
-    /*-------------------------------مشان نجيب ال داتا من API-------------------------*/
-  }
+  // Function
+
+  //     مشان نجيب ال داتا من API
   const GetData = async () => {
     setLoading(true);
     const response = await GetProducts();
@@ -77,10 +56,24 @@ const Products = () => {
     GetData();
   }, [i18next.language]);
 
+  //     مشان ال فلترة و لعدم تكريرها اكثر من مرة
+  const FilterProducts = useMemo(() => {
+    return data?.filter(
+      (item) =>
+        SelectedCategory === "All" ||
+        item.category?.[activeLanguage] === SelectedCategory,
+    );
+  }, [SelectedCategory, activeLanguage, data]);
+
+  //    مشان نعرضها ب كونسل
+  const addToCart = (Product) => {
+    console.log(Product);
+  };
   return (
     <>
       <Header />
       <ContainerAll>
+        {/*------------------------------------Section Hero---------------------------------*/}
         <ContainerText>
           <div>
             <h1>{t("Our Products")} </h1>
@@ -91,7 +84,6 @@ const Products = () => {
             </p>
           </div>
         </ContainerText>
-        {/*--------------------------------------------------------------------------------- */}
         {/*-------------------------لتنسيق الازرار و تغير قيمتها ----------------------*/}
         <ContainerButton>
           <div className="mar">
@@ -121,13 +113,14 @@ const Products = () => {
             </div>
           </div>
         </ContainerButton>
+        {/*-------------------------قسم العرض--------------------------*/}
         <Container>
-          {/*--------------------لعرض المصفوفة الخاصة ب منتجات--------------------------*/}
           <div className="pad">
             <NumberArray>
               {FilterProducts.length}
               {t("products found")}
             </NumberArray>
+            {/*--------------------لعرض المصفوفة الخاصة ب منتجات--------------------------*/}
             <DisplayMode ViewMode={ViewMode}>
               {FilterProducts?.map((item) =>
                 ViewMode === "grid" ? (
