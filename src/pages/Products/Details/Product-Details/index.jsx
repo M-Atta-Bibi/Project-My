@@ -10,10 +10,13 @@ const ProductDetails = ({
   addToCart,
 }) => {
   const { t, i18n } = useTranslation();
+  const activeLanguage = i18n.language;
+  const { price, reviews, color, badge, category, description, name, rating } =
+    product;
   return (
     <>
       <ContainerCart>
-        <ImgBox color={product.color}>
+        <ImgBox color={color?.[activeLanguage]}>
           {/*------------------------للمربع الابيض--------------------- */}
           <svg
             width="54"
@@ -30,22 +33,22 @@ const ProductDetails = ({
             <line x1="12" y1="22.08" x2="12" y2="12" />
           </svg>
           {/*---------------------------------------------------------- */}
-          {product.badge && <Badge> {product.badge}</Badge>}
+          {badge?.[activeLanguage] && <Badge> {badge?.[activeLanguage]}</Badge>}
         </ImgBox>
         <DataProduct>
-          <span id="first"> {product?.category} </span>
-          <h2>{product?.name}</h2>
+          <span id="first"> {category?.[activeLanguage]} </span>
+          <h2>{name?.[activeLanguage]}</h2>
           <p id="second">
-            ⭐⭐⭐⭐⭐ {product?.rating} out of 5-{product?.reviewsCount}
+            ⭐⭐⭐⭐⭐ {rating} out of 5-{reviews}
           </p>
-          <p id="third">{product?.description}</p>
+          <p id="third">{description?.[activeLanguage]}</p>
           <div className="Cula">
             <ul id="ula">
               <Feature />
             </ul>
           </div>
           <p id="price">
-            ${product?.price} <p>/month</p>
+            ${price} <p>/month</p>
           </p>
           <div id="Container-Qty">
             <p id="Text-Qty">{t("Qty")}</p>

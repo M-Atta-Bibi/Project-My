@@ -61,7 +61,6 @@ export const DataProduct = styled.div`
     margin-bottom: 24px;
     #ula {
       list-style-type: none;
-
       padding: 0;
       li {
         color: var(--gray-text-400);

@@ -25,15 +25,28 @@ import {
   removeFromFavorites,
 } from "../../../store/favorites/favoritesSlice";
 import { FaHeart } from "react-icons/fa";
+
 const List = ({ Product, onAddToCart }) => {
+  const {
+    id,
+    price,
+    reviews,
+    color,
+    badge,
+    category,
+    description,
+    name,
+    rating,
+  } = Product;
   const { t, i18n } = useTranslation();
+  const activeLanguage = i18n.language;
   const favorites = useSelector((state) => state.favorite.Favorites);
   const dispatch = useDispatch();
-  const isFavorites = favorites.some((item) => item.id === Product.id);
+  const isFavorites = favorites.some((item) => item.id === id);
   return (
-    <LinkDetails to={`/Products/${Product.id}`}>
+    <LinkDetails to={`/Products/${id}`}>
       <Container>
-        <ImgBox color={Product.color}>
+        <ImgBox color={color}>
           <svg
             width="54"
             height="54"
@@ -51,11 +64,13 @@ const List = ({ Product, onAddToCart }) => {
         </ImgBox>
         <Content>
           <HeaderRow>
-            {Product.badge && <Badge>{Product.badge}</Badge>}
+            {badge?.[activeLanguage] && (
+              <Badge>{badge?.[activeLanguage]}</Badge>
+            )}
             <Price>
               <span onClick={(e) => e.stopPropagation()}>
                 <Checkbox
-                  id={Product.id}
+                  id={id}
                   fieldLabel={
                     <FaHeart color={isFavorites ? "red" : "#cbcbcb"} />
                   }
@@ -69,17 +84,17 @@ const List = ({ Product, onAddToCart }) => {
                 />
               </span>
               <div className="CoP">
-                ${Product.price}
+                ${price}
                 <p>/mo</p>
               </div>
             </Price>
           </HeaderRow>
-          <Title> {Product.name}</Title>
-          <Category>{Product.category}</Category>
-          <Description>{Product.description}</Description>
+          <Title> {name?.[activeLanguage]}</Title>
+          <Category>{category?.[activeLanguage]}</Category>
+          <Description>{description?.[activeLanguage]}</Description>
           <FooterRow>
             <RatingRow>
-              ⭐⭐⭐⭐⭐ {Product.rating}({Product.reviewsCount} reviews)
+              ⭐⭐⭐⭐⭐ {rating?.[activeLanguage]}({reviews} reviews)
             </RatingRow>
             <Action>
               <Details>{t("View Details")}</Details>
