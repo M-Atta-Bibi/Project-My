@@ -1,11 +1,10 @@
 import environment from "../environment";
 import { getAccessToken } from "../helpers/cookies";
 import { GetLocalStorage } from "../helpers/local-storage";
+import { handleERROR } from "./error.service";
 import axios from "axios";
 
-export const getLang = () => {
-  GetLocalStorage(environment.lang) || "ar";
-};
+export const getLang = () => GetLocalStorage(environment.lang) || "ar";
 const getConfig = () => {
   const Token = getAccessToken(environment.TOKEN_KEY);
   const headers = {
@@ -24,10 +23,11 @@ export const GET = async (apiPath) => {
       res.data = responese.data;
     })
     .catch((error) => {
-      handleError(error?.response);
+      handleERROR(error?.response);
     });
   return res;
 };
+
 export const POST = async (apiPath, requestBody) => {
   let res = {};
   await axios
@@ -37,7 +37,7 @@ export const POST = async (apiPath, requestBody) => {
       res.data = response.data;
     })
     .catch((error) => {
-      handleError(error?.response);
+      handleERROR(error?.response);
     });
   return res;
 };
@@ -51,7 +51,7 @@ export const PUT = async (apiPath, requestBody) => {
       res.data = response.data;
     })
     .catch((error) => {
-      handleError(error?.response);
+      handleERROR(error?.response);
     });
   return res;
 };
@@ -65,7 +65,7 @@ export const PATCH = async (apiPath, requestBody) => {
       res.data = response.data;
     })
     .catch((error) => {
-      handleError(error?.response);
+      handleERROR(error?.response);
     });
   return res;
 };
@@ -79,7 +79,7 @@ export const DELETE = async (apiPath) => {
       res.data = response.data;
     })
     .catch((error) => {
-      handleError(error?.response);
+      handleERROR(error?.response);
     });
   return res;
 };

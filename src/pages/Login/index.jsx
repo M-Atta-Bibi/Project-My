@@ -13,7 +13,7 @@ import Header from "../../Componets/Header/Header";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/auth/authSlice";
-import { setAccessToken } from "../../services/auth.storage";
+import { setAccessToken } from "../../helpers/cookies";
 import { useTranslation } from "react-i18next";
 
 function Login() {

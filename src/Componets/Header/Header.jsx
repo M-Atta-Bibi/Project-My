@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/auth/authSlice";
 import LanguageSwitcher from "../language-switcher";
 import { useTranslation } from "react-i18next";
-import { getAccessToken, clearAccessToken } from "../../services/auth.storage";
+import { getAccessToken, clearAccessToken } from "../../helpers/cookies";
 import pathConstants from "../../routes/pathConstants";
 import { FiShoppingBag } from "react-icons/fi";
 const Header = () => {

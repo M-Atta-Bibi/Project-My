@@ -1,10 +1,9 @@
 import { BsGridFill, BsListUl } from "react-icons/bs";
-
 import { ProductsArray } from "../../Data/ProductsArray";
 import { ProductsArrayAR } from "../../Data/ProductsArrayAR";
 import Grid from "./ProductCardGrid";
 import List from "./ProductCardList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Buttons,
   Container,
@@ -18,9 +17,14 @@ import {
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import { useTranslation } from "react-i18next";
+import { GetProducts } from "../../services/Products/products.service";
+import i18next from "i18next";
 
 const Products = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { t, i18n } = useTranslation();
+  const activeLanguage = i18n.language;
   const ArrayUsed = () => {
     if (i18n?.language === "ar") {
       return ProductsArrayAR;
@@ -54,6 +58,23 @@ const Products = () => {
       : productArray?.filter(
           (Product) => Product.category === SelectedCategory,
         );
+  {
+    /*-------------------------------مشان نجيب ال داتا من API-------------------------*/
+  }
+  const GetData = async () => {
+    setLoading(true);
+    const response = await GetProducts();
+    if (response.status === 200) {
+      setData(response.data);
+    } else {
+      setData([]);
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
+    GetData();
+  }, [i18next.language]);
+
   return (
     <>
       <Header />
