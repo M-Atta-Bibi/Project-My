@@ -24,21 +24,29 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from "../../../store/favorites/favoritesSlice";
+
 const Grid = ({ Product, onAddToCart, showDetails }) => {
+  const { id, price, reviews, color, badge, category, description, name } =
+    Product;
   const { t, i18n } = useTranslation();
+  const activeLanguage = i18n.language;
   const favorites = useSelector((state) => state.favorite.Favorites);
   const dispatch = useDispatch();
-  const isFavorites = favorites.some((item) => item.id === Product.id);
+  const isFavorites = favorites.some((item) => item.id === id);
   return (
-    <LinkDetails to={`/Products/${Product.id}`}>
+    <LinkDetails to={`/Products/${id}`}>
       <Container>
-        <ImgBox color={Product.color}>
+        <ImgBox color={color}>
           {showDetails && (
-            <>{Product.badge && <Badge> {Product.badge}</Badge>}</>
+            <>
+              {badge?.[activeLanguage] && (
+                <Badge> {badge?.[activeLanguage]}</Badge>
+              )}
+            </>
           )}
           <span onClick={(e) => e.stopPropagation()}>
             <Checkbox
-              id={Product.id}
+              id={id}
               fieldLabel={<FaHeart color={isFavorites ? "red" : "white"} />}
               name="favorites"
               fieldValue={isFavorites}
@@ -68,30 +76,30 @@ const Grid = ({ Product, onAddToCart, showDetails }) => {
           {/*---------------------------------------------------------- */}
         </ImgBox>
         <Content>
-          <Category>{Product.category}</Category>
-          <Title>{Product.name}</Title>
+          <Category>{category?.[activeLanguage]}</Category>
+          <Title>{name?.[activeLanguage]}</Title>
           {showDetails && (
             <>
-              <Description>{Product.description}</Description>
+              <Description>{description?.[activeLanguage]}</Description>
             </>
           )}
           {showDetails && (
             <>
               <RatingRow>
-                ⭐⭐⭐⭐⭐ <RiviewsCount>({Product.reviewsCount})</RiviewsCount>
+                ⭐⭐⭐⭐⭐ <RiviewsCount>({reviews})</RiviewsCount>
               </RatingRow>
             </>
           )}
           <FooterRow>
             <Price>
-              ${Product.price}
+              ${price}
               <span>/mo</span>
             </Price>
             {showDetails && (
               <>
                 <Action>
                   <Details>
-                    <Link to={`/Products/${Product.id}`}>{t("Details")}</Link>
+                    <Link to={`/Products/${id}`}>{t("Details")}</Link>
                   </Details>
                   <Add
                     onClick={(e) => {

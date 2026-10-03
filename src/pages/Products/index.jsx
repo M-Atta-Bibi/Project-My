@@ -3,7 +3,7 @@ import { ProductsArray } from "../../Data/ProductsArray";
 import { ProductsArrayAR } from "../../Data/ProductsArrayAR";
 import Grid from "./ProductCardGrid";
 import List from "./ProductCardList";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Buttons,
   Container,
@@ -52,20 +52,22 @@ const Products = () => {
   {
     /*------------------------مشان ال فلترة و لعدم تكريرها اكثر من مرة------------- */
   }
-  const FilterProducts =
-    SelectedCategory === "All"
-      ? productArray
-      : productArray?.filter(
-          (Product) => Product.category === SelectedCategory,
-        );
+  const FilterProducts = useMemo(() => {
+    return data?.filter(
+      (item) =>
+        SelectedCategory === "All" ||
+        item.category?.[activeLanguage] === SelectedCategory,
+    );
+  }, [SelectedCategory, activeLanguage, data]);
+
   {
     /*-------------------------------مشان نجيب ال داتا من API-------------------------*/
   }
   const GetData = async () => {
     setLoading(true);
     const response = await GetProducts();
-    if (response.status === 200) {
-      setData(response.data);
+    if (response?.status === 200) {
+      setData(response?.data);
     } else {
       setData([]);
     }
