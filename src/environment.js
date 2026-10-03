@@ -8,6 +8,15 @@ const environment = {
   ogImage: "/og-image.png",
   keywords:
     "React SEO, metadata, react-helmet, robots.txt, sitemap, Open Graph",
+
+  // API ENDPOINTS
+  products: "products",
+  services: "services",
+  quiz: "quiz",
+  favorites: "favorites",
+
+  // API URL
+  API_URL: "http://localhost:3001",
 };
 
 export default environment;
