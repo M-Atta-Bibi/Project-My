@@ -41,7 +41,7 @@ export const FAQHeader = styled.div`
   }
 `;
 export const FAQSection = styled.div`
-  background-color: var(--white-color);
+  background-color: var(--backgroud-pr);
   padding: 80px 20px;
   text-align: center;
   display: flex;

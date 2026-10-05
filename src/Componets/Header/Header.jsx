@@ -1,64 +1,102 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { BsListUl } from "react-icons/bs";
+import Button from "../common/Button";
+import { useTheme } from "../../context/theme/useTheme";
+import { useDispatch, useSelector } from "react-redux";
+import LanguageSwitcher from "../language-switcher";
+import { useTranslation } from "react-i18next";
+import { getAccessToken, clearAccessToken } from "../../helpers/cookies";
+import pathConstants from "../../routes/pathConstants";
+import { FiHeart } from "react-icons/fi";
 import {
+  CoBut,
   Container,
   HeaderContainer,
   Logo,
   MenuIcon,
   NavWrapper,
 } from "./style";
-import { useState } from "react";
-import { BsListUl } from "react-icons/bs";
-import Button from "../common/Button";
-import { useTheme } from "../../context/theme/useTheme";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/auth/authSlice";
-import LanguageSwitcher from "../language-switcher";
-import { useTranslation } from "react-i18next";
-import { getAccessToken, clearAccessToken } from "../../helpers/cookies";
-import pathConstants from "../../routes/pathConstants";
-import { FiShoppingBag } from "react-icons/fi";
+
 const Header = () => {
+  // Hooks
   const { t } = useTranslation();
+
+  // States
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme("");
-  const user = useSelector((state) => state.auth.user);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Function
   const isAuthenticated = !!getAccessToken();
   const handleLogout = () => {
     clearAccessToken();
     navigate(pathConstants.Login);
   };
+
   return (
     <Container>
       <HeaderContainer>
+        {/*------------------------*/}
         <Logo>
           <h2>DKUST</h2>
-          <Button
-            className="LDm"
-            label={theme === "light" ? t("DARK") : t("LIGHT")}
-            onClickFunction={toggleTheme}
-          />
-          <LanguageSwitcher />
-          <Button
-            className="LDm"
-            label={<FiShoppingBag />}
-            onClickFunction={() => navigate("/Favorites")}
-          />
         </Logo>
-        <MenuIcon onClick={() => setIsOpen(!isOpen)}>
-          <BsListUl />
-        </MenuIcon>
+        {/*------------------------*/}
         <NavWrapper $isOpen={isOpen}>
-          <Link to="/Home">{t("HOME")} </Link>
-          <Link to="/ABOUT">{t("ABOUT")}</Link>
-          <Link to="/PORTFOLIO">{t("PORTFOLIO")} </Link>
-          <Link to="/products">{t("PRODUCTS")} </Link>
-          <Link to="/SERVICES">{t("SERVICES")} </Link>
-          <Link to="/BLOG"> {t("BLOG")}</Link>
-          <Link to="/RESOURES"> {t("RESOURCES")} </Link>
-          <Link to="/Quiz"> {t("QUIZ")}</Link>
-          <Link to="/CONTACT"> {t("CONTACT")}</Link>
+          <NavLink
+            to="/Home"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("HOME")}
+          </NavLink>
+          <NavLink
+            to="/ABOUT"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("ABOUT")}{" "}
+          </NavLink>
+          <NavLink
+            to="/PORTFOLIO"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("PORTFOLIO")}
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("PRODUCTS")}
+          </NavLink>
+          <NavLink
+            to="/SERVICES"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("SERVICES")}
+          </NavLink>
+          <NavLink
+            to="/BLOG"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("BLOG")}
+          </NavLink>
+          <NavLink
+            to="/RESOURES"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("RESOURCES")}
+          </NavLink>
+          <NavLink
+            to="/Quiz"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("QUIZ")}
+          </NavLink>
+          <NavLink
+            to="/CONTACT"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("CONTACT")}
+          </NavLink>
           {isAuthenticated ? (
             <>
               <Button
@@ -68,15 +106,41 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/login" border="true">
+              <NavLink
+                to="/login"
+                border="true"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 {t("LOGIN")}
-              </Link>
-              <Link to="/register" border="true">
+              </NavLink>
+              <NavLink
+                to="/register"
+                border="true"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 {t("REGISTER")}
-              </Link>
+              </NavLink>
             </>
           )}
         </NavWrapper>
+        {/*------------------------*/}
+        <CoBut>
+          <Button
+            className="LDm"
+            label={theme === "light" ? t("DARK") : t("LIGHT")}
+            onClickFunction={toggleTheme}
+          />
+          <MenuIcon onClick={() => setIsOpen(!isOpen)}>
+            <BsListUl />
+          </MenuIcon>
+          <LanguageSwitcher />
+          <Button
+            className="LDm"
+            label={<FiHeart size={20} />}
+            onClickFunction={() => navigate("/Favorites")}
+          />
+        </CoBut>
+        {/*------------------------*/}
       </HeaderContainer>
     </Container>
   );
