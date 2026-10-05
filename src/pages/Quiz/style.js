@@ -49,7 +49,7 @@ export const Introduction = styled.div`
   }
 `;
 export const Main = styled.div`
-  background-color: var(--white-color);
+  background-color: var(--backgroud-pr);
   padding: 64px 24px;
 `;
 export const ContainerQuestion = styled.div`

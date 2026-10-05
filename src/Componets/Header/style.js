@@ -28,29 +28,6 @@ export const Logo = styled.div`
     font-weight: 700;
     letter-spacing: 0.1rem;
   }
-  .LDm {
-    border: 1px solid #22c55e;
-    padding: 6px 16px;
-    color: #22c55e;
-    background: var(--main-gradient);
-    cursor: pointer;
-  }
-  .CoLng {
-    position: relative;
-    button {
-      border: 1px solid #22c55e;
-      padding: 6px 16px;
-      color: #22c55e;
-      background: var(--main-gradient);
-      cursor: pointer;
-    }
-    ul {
-      list-style: none;
-    }
-    li {
-      position: absolute;
-    }
-  }
 `;
 export const NavWrapper = styled.div`
   display: flex;
@@ -76,9 +53,12 @@ export const NavWrapper = styled.div`
     text-decoration: none;
     font-size: 12px;
     &:hover {
-      color: var(--white-color);
+      color: var(--nav-link-color-hover);
     }
     &:focus {
+      color: #16a34a;
+    }
+    &.active {
       color: #16a34a;
     }
     border: 1px solid transparent;
@@ -110,5 +90,56 @@ export const MenuIcon = styled.div`
   font-size: 28px;
   @media (max-width: 768px) {
     display: block;
+  }
+`;
+export const CoBut = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  .CoLng {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    border-radius: 50%;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      padding: 6px 16px;
+      color: #22c55e;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      position: absolute;
+      top: 32px;
+      right: 10px;
+      &:hover {
+        background-color: var(--background-perfect);
+        border-radius: 10px;
+      }
+    }
+  }
+  .LDm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    color: #22c55e;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
   }
 `;

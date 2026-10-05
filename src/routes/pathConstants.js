@@ -7,5 +7,8 @@ const pathConstants = {
   Register: "/Register",
   Details: "/Products/:id",
   Favorites: "/Favorites",
+  Services: "/Services",
+  Blog: "/Blog",
+  About: "/About",
 };
 export default pathConstants;

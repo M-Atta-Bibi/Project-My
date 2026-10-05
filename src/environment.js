@@ -14,6 +14,7 @@ const environment = {
   services: "services",
   quiz: "quiz",
   favorites: "favorites",
+  posts: "posts",
 
   // API URL
   API_URL: "http://localhost:3001",

@@ -11,8 +11,8 @@
   "LOGIN": "LOGIN",
   "REGISTER": "REGISTER",
   "LOGOUT": "LOGOUT",
-  "DARK": "dark",
-  "LIGHT": "light",
+  "DARK": "DARK",
+  "LIGHT": "LIGHT",
   "CONTACT DETAIL": "CONTACT DETAIL",
   "123 Business Street, Suite 100,": "123 Business Street, Suite 100,",
   "New York, NY 10001": "New York, NY 10001",
@@ -105,5 +105,13 @@
   "You can reach our team through the contact form on our website, by emailing info@dkust.com, or by calling +1 234 567 8900. Our support team is available Monday through Friday, 9 AM to 6 PM EST.": "You can reach our team through the contact form on our website, by emailing info@dkust.com, or by calling +1 234 567 8900. Our support team is available Monday through Friday, 9 AM to 6 PM EST.",
 
   "Yes, we provide comprehensive technical support for all our services. We offer different support tiers including standard email support, priority phone support, and dedicated account management for enterprise clients.": "Yes, we provide comprehensive technical support for all our services. We offer different support tiers including standard email support, priority phone support, and dedicated account management for enterprise clients.",
-  "Qty": "Qty:"
+  "Qty": "Qty:",
+  "Our Services": "Our Services",
+  "From web platforms to machine learning and robotics, we deliver end-to-end solutions.": "From web platforms to machine learning and robotics, we deliver end-to-end solutions.",
+  "DKUST Blog": "DKUST Blog",
+  "Updates, product notes, and engineering stories from the team.": "Updates, product notes, and engineering stories from the team.",
+  "About DKUST": "About DKUST",
+  "We build software, AI, and robotics products for modern teams.": "We build software, AI, and robotics products for modern teams.",
+  "Our story": "Our story",
+  "DKUST started as a technology studio focused on practical tools. Today we help teams ship analytics, automation, and industrial solutions.": "DKUST started as a technology studio focused on practical tools. Today we help teams ship analytics, automation, and industrial solutions."
 }
