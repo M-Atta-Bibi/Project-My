@@ -26,6 +26,7 @@ const LanguageSwitcher = () => {
   return (
     <div className="CoLng">
       <Button
+        className="LDm"
         type="button"
         onClickFunction={() => setIsOpen((open) => !open)}
         label={currentLang === "ar" ? "عربي" : "EN"}
@@ -37,6 +38,7 @@ const LanguageSwitcher = () => {
               lang.key !== currentLang && (
                 <li>
                   <Button
+                    className="DL"
                     type="button"
                     onClickFunction={() => switchLanguage(lang.key)}
                     label={lang.label}

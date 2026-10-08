@@ -37,7 +37,7 @@ export const NavWrapper = styled.div`
   span {
     color: var(--btn-green);
   }
-  button {
+  .BuLogOut {
     cursor: pointer;
     background: var(--main-gradient);
     border: 1px solid #22c55e;
@@ -95,11 +95,12 @@ export const MenuIcon = styled.div`
 export const CoBut = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   .CoLng {
+    color: var(--nav-link-color);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 36px;
     height: 36px;
     position: relative;
@@ -107,7 +108,7 @@ export const CoBut = styled.div`
     &:hover {
       background-color: rgba(255, 255, 255, 0.15);
     }
-    button {
+    .DL {
       background-color: transparent;
       border: none;
       padding: 6px 16px;
@@ -119,6 +120,7 @@ export const CoBut = styled.div`
     }
     li {
       position: absolute;
+      font-size: 20px;
       top: 32px;
       right: 10px;
       &:hover {
@@ -136,10 +138,43 @@ export const CoBut = styled.div`
     border-radius: 50%;
     background-color: transparent;
     border: none;
-    color: #22c55e;
+    color: var(--nav-link-color);
+    font-size: 16px;
     cursor: pointer;
     &:hover {
       background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .CoFavorites {
+    span {
+      position: absolute;
+      top: 6px;
+      right: 207px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white-color);
+    }
+    a {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--nav-link-color);
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      &.active {
+        background-color: #16a34a;
+      }
     }
   }
 `;

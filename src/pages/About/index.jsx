@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
