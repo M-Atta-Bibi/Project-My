@@ -105,7 +105,7 @@ const DetailsPage = () => {
         <ContainerDetailsPage>
           <div id="back">
             <p className="a">
-              <Link to="/products">{t("← Back to Products")} </Link>
+              <Link to="/products">{t("← Back to Products")}</Link>
             </p>
             {/*--------------------لعرض المصفوفة الخاصة ب منتج--------------------------*/}
             <ContainerDetails>

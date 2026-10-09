@@ -30,6 +30,7 @@ const Products = () => {
   const [data, setData] = useState([]);
   const [ViewMode, setViewMode] = useState("grid");
   const [SelectedCategory, setSelectedCategory] = useState("All");
+  const [Quentity, setQuentity] = useState(1);
   const Categories = [
     t("All"),
     t("Software"),
@@ -131,7 +132,12 @@ const Products = () => {
                     showDetails={true}
                   />
                 ) : (
-                  <List Product={item} key={item.id} onAddToCart={addToCart} />
+                  <List
+                    Product={item}
+                    key={item.id}
+                    onAddToCart={addToCart}
+                    Quentity={Quentity}
+                  />
                 ),
               )}
             </DisplayMode>

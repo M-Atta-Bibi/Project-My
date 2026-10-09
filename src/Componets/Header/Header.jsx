@@ -45,6 +45,12 @@ const Header = () => {
         {/*------------------------*/}
         <NavWrapper $isOpen={isOpen}>
           <NavLink
+            to={pathConstants.Buy}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("Buy")}
+          </NavLink>
+          <NavLink
             to="/Home"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
