@@ -1,12 +1,17 @@
 import { useTranslation } from "react-i18next";
 import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToFavorites,
   removeFromFavorites,
 } from "../../../store/favorites/favoritesSlice";
-
+import {
+  addProductBuy,
+  removeProductBuy,
+  plusQTY,
+  minusQTY,
+} from "../../../store/buy/buySlice";
 import {
   Action,
   Add,
@@ -25,8 +30,9 @@ import {
   RiviewsCount,
   Title,
 } from "./styles";
+import Button from "../../../Componets/common/Button";
 
-const List = ({ Product, onAddToCart }) => {
+const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
   // ال بروب ال بدي استقبلها من داتا
   const {
     id,
@@ -38,6 +44,7 @@ const List = ({ Product, onAddToCart }) => {
     description,
     name,
     rating,
+    qty,
   } = Product;
 
   // Hooks
@@ -51,8 +58,23 @@ const List = ({ Product, onAddToCart }) => {
 
   return (
     <LinkDetails to={`/Products/${id}`}>
-      <Container>
+      <Container showBuy={showBuy}>
         <ImgBox color={color}>
+          {showList && (
+            <span>
+              <Checkbox
+                id={id}
+                fieldLabel={<FaHeart color={isFavorites ? "red" : "#cbcbcb"} />}
+                name="favorites"
+                fieldValue={isFavorites}
+                onChangeFunction={(checked) => {
+                  checked
+                    ? dispatch(addToFavorites(Product))
+                    : dispatch(removeFromFavorites(Product));
+                }}
+              />
+            </span>
+          )}
           <svg
             width="54"
             height="54"
@@ -68,53 +90,75 @@ const List = ({ Product, onAddToCart }) => {
             <line x1="12" y1="22.08" x2="12" y2="12" />
           </svg>
         </ImgBox>
-        <Content>
-          <HeaderRow>
-            {badge?.[activeLanguage] && (
+        <Content showBuy={showBuy}>
+          {showBuy && (
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                dispatch(removeProductBuy(Product));
+              }}
+              className="CoDelete"
+            >
+              <FaTrash />
+            </div>
+          )}
+          <HeaderRow showBuy={showBuy}>
+            {showList && badge?.[activeLanguage] && (
               <Badge>{badge?.[activeLanguage]}</Badge>
             )}
             <Price>
-              <span onClick={(e) => e.stopPropagation()}>
-                <Checkbox
-                  id={id}
-                  fieldLabel={
-                    <FaHeart color={isFavorites ? "red" : "#cbcbcb"} />
-                  }
-                  name="favorites"
-                  fieldValue={isFavorites}
-                  onChangeFunction={(checked) => {
-                    checked
-                      ? dispatch(addToFavorites(Product))
-                      : dispatch(removeFromFavorites(Product));
+              {showBuy && (
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
                   }}
-                />
-              </span>
+                  className="CoR"
+                >
+                  <Button
+                    label="-"
+                    id="minus"
+                    onClickFunction={() => dispatch(minusQTY(Product))}
+                  />
+                  <p id="reslute">{qty}</p>
+                  <Button
+                    label="+"
+                    id="plus"
+                    onClickFunction={() => dispatch(plusQTY(Product))}
+                  />
+                </div>
+              )}
               <div className="CoP">
                 ${price}
                 <p>/mo</p>
               </div>
             </Price>
           </HeaderRow>
-          <Title> {name?.[activeLanguage]}</Title>
-          <Category>{category?.[activeLanguage]}</Category>
-          <Description>{description?.[activeLanguage]}</Description>
-          <FooterRow>
-            <RatingRow>
-              ⭐⭐⭐⭐⭐ {rating?.[activeLanguage]}({reviews} reviews)
-            </RatingRow>
-            <Action>
-              <Details>{t("View Details")}</Details>
-              <Add
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onAddToCart(Product);
-                }}
-              >
-                🛒{t("Add to Cart")}
-              </Add>
-            </Action>
-          </FooterRow>
+          {showList && <Title> {name?.[activeLanguage]}</Title>}
+          {showList && <Category>{category?.[activeLanguage]}</Category>}
+          {showList && (
+            <Description>{description?.[activeLanguage]}</Description>
+          )}
+          {showList && (
+            <FooterRow>
+              <RatingRow>
+                ⭐⭐⭐⭐⭐ {rating?.[activeLanguage]}({reviews} reviews)
+              </RatingRow>
+              <Action>
+                {<Details>{t("View Details")}</Details>}
+                <Add
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dispatch(addProductBuy(Product));
+                  }}
+                >
+                  🛒{t("Add to Cart")}
+                </Add>
+              </Action>
+            </FooterRow>
+          )}
         </Content>
       </Container>
     </LinkDetails>

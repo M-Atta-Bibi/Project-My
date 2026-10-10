@@ -11,6 +11,7 @@ const FavoritesPage = React.lazy(() => import("../pages/Favorites"));
 const ServicesPage = React.lazy(() => import("../pages/Services"));
 const BlogPage = React.lazy(() => import("../pages/Blog"));
 const AboutPage = React.lazy(() => import("../pages/About"));
+const BuyPage = React.lazy(() => import("../pages/Buy"));
 
 const routes = [
   { path: pathConstants.Register, element: <RegisterPage /> },
@@ -27,6 +28,7 @@ const routes = [
       { path: pathConstants.Services, element: <ServicesPage /> },
       { path: pathConstants.Blog, element: <BlogPage /> },
       { path: pathConstants.About, element: <AboutPage /> },
+      { path: pathConstants.Buy, element: <BuyPage /> },
     ],
   },
 ];

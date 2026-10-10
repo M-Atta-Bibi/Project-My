@@ -1,7 +1,12 @@
 import { useTranslation } from "react-i18next";
 import Button from "../../../../Componets/common/Button";
 import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
-
+import {
+  addProductBuy,
+  plusQTY,
+  minusQTY,
+} from "../../../../store/buy/buySlice";
+import { useDispatch } from "react-redux";
 const ProductDetails = ({
   product,
   Feature,
@@ -9,6 +14,7 @@ const ProductDetails = ({
   CounterQty,
   addToCart,
 }) => {
+  const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
   const { price, reviews, color, badge, category, description, name, rating } =
@@ -53,20 +59,24 @@ const ProductDetails = ({
           <div id="Container-Qty">
             <p id="Text-Qty">{t("Qty")}</p>
             <Button
-              onClickFunction={() => CounterQty("decrease")}
+              onClickFunction={() => dispatch(minusQTY(product))}
               label="-"
               id="minus"
             />
             <p id="reslute">{Quentity}</p>
             <Button
-              onClickFunction={() => CounterQty("increase")}
+              onClickFunction={() => dispatch(plusQTY(product))}
               label="+"
               id="plus"
             />
           </div>
           <div id="Container-Button">
             <Button onClickFunction={addToCart} label="Add to Cart" id="ATC" />
-            <Button onClickFunction={addToCart} label="Buy Now" id="BN" />
+            <Button
+              onClickFunction={() => dispatch(addProductBuy(product))}
+              label="Buy Now"
+              id="BN"
+            />
           </div>
         </DataProduct>
       </ContainerCart>

@@ -11,7 +11,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  height: ${({ showBuy }) => (showBuy ? "121px" : "100%")};
+  margin-bottom: ${({ showBuy }) => (showBuy ? "16px" : "0")};
   align-items: flex-start;
   padding: 12px;
   box-sizing: border-box;
@@ -21,17 +22,30 @@ export const ImgBox = styled.div`
   height: 90px;
   width: 90px;
   display: flex;
-  min-width: 90px;
-  border-radius: 12px;
   align-items: center;
   justify-content: center;
+  min-width: 90px;
+  border-radius: 12px;
   position: relative;
+  .form-check-input {
+    display: none !important;
+  }
+  .form-check-label svg {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 12px;
+    height: 12px;
+    stroke-width: 1;
+  }
 `;
 export const HeaderRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${({ showBuy }) =>
+    showBuy
+      ? ""
+      : " display: flex; align-items: center; justify-content: space-between;"};
 `;
+
 export const Badge = styled.span`
   top: 12px;
   left: 12px;
@@ -47,14 +61,43 @@ export const Price = styled.div`
   font-size: 18px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 6px;
-  .form-check-input {
-    display: none !important;
-  }
-  .form-check-label svg {
-    width: 28px;
-    height: 28px;
-    stroke-width: 1;
+  .CoR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #minus {
+      background-color: var(--white-color);
+      width: 37px;
+      height: 37px;
+      border: 1px solid #d4d7e0;
+      border-radius: 0;
+      border-end-start-radius: 12px;
+      border-start-start-radius: 12px;
+      cursor: pointer;
+    }
+    #plus {
+      background-color: var(--white-color);
+      width: 37px;
+      height: 37px;
+      border: 1px solid #d4d7e0;
+      border-radius: 0;
+      border-start-end-radius: 12px;
+      border-end-end-radius: 12px;
+      cursor: pointer;
+    }
+    #reslute {
+      background-color: var(--white-color);
+      width: 37px;
+      height: 37px;
+      border: 1px solid #d4d7e0;
+      border-right: none;
+      border-left: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .CoP {
     display: flex;
@@ -65,11 +108,23 @@ export const Price = styled.div`
   }
 `;
 export const Content = styled.div`
-  padding-block-end: 20px;
+  padding-block-end: ${({ showBuy }) => (showBuy ? "0" : "20px")};
   padding-inline-start: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: ${({ showBuy }) => (showBuy ? "30px" : "0")};
+  .CoDelete {
+    display: flex;
+    justify-content: flex-end;
+    svg {
+      font-size: 16px;
+      color: var(--gray-text);
+      &:hover {
+        color: red;
+      }
+    }
+  }
 `;
 export const Title = styled.h3`
   color: #111827;

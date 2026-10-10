@@ -3,12 +3,12 @@ import { useState } from "react";
 import { BsListUl } from "react-icons/bs";
 import Button from "../common/Button";
 import { useTheme } from "../../context/theme/useTheme";
-import { useDispatch, useSelector } from "react-redux";
 import LanguageSwitcher from "../language-switcher";
 import { useTranslation } from "react-i18next";
 import { getAccessToken, clearAccessToken } from "../../helpers/cookies";
 import pathConstants from "../../routes/pathConstants";
 import { FiHeart } from "react-icons/fi";
+import { useSelector } from "react-redux";
 import {
   CoBut,
   Container,
@@ -25,6 +25,7 @@ const Header = () => {
   // States
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme("");
+  const favorites = useSelector((state) => state.favorite.Favorites);
   const navigate = useNavigate();
 
   // Function
@@ -43,6 +44,12 @@ const Header = () => {
         </Logo>
         {/*------------------------*/}
         <NavWrapper $isOpen={isOpen}>
+          <NavLink
+            to={pathConstants.Buy}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("Buy")}
+          </NavLink>
           <NavLink
             to="/Home"
             className={({ isActive }) => (isActive ? "active" : "")}
@@ -100,6 +107,7 @@ const Header = () => {
           {isAuthenticated ? (
             <>
               <Button
+                className="BuLogOut"
                 label={t("LOGOUT")}
                 onClickFunction={() => handleLogout()}
               />
@@ -125,6 +133,7 @@ const Header = () => {
         </NavWrapper>
         {/*------------------------*/}
         <CoBut>
+          <LanguageSwitcher />
           <Button
             className="LDm"
             label={theme === "light" ? t("DARK") : t("LIGHT")}
@@ -133,12 +142,15 @@ const Header = () => {
           <MenuIcon onClick={() => setIsOpen(!isOpen)}>
             <BsListUl />
           </MenuIcon>
-          <LanguageSwitcher />
-          <Button
-            className="LDm"
-            label={<FiHeart size={20} />}
-            onClickFunction={() => navigate("/Favorites")}
-          />
+          <div className="CoFavorites">
+            {favorites?.length > 0 && <span>{favorites.length}</span>}
+            <NavLink
+              to="/Favorites"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {<FiHeart size={16} />}
+            </NavLink>
+          </div>
         </CoBut>
         {/*------------------------*/}
       </HeaderContainer>

@@ -7,6 +7,7 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from "../../../store/favorites/favoritesSlice";
+import { addProductBuy } from "../../../store/buy/buySlice";
 import {
   Action,
   Add,
@@ -25,7 +26,7 @@ import {
   Title,
 } from "./styles";
 
-const Grid = ({ Product, onAddToCart, showDetails }) => {
+const Grid = ({ Product, showDetails }) => {
   // ال بروب ال بدي استقبلها من داتا
   const { id, price, reviews, color, badge, category, description, name } =
     Product;
@@ -111,7 +112,7 @@ const Grid = ({ Product, onAddToCart, showDetails }) => {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      onAddToCart(Product);
+                      dispatch(addProductBuy(Product));
                     }}
                   >
                     🛒{t("Add")}
