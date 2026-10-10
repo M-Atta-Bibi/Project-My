@@ -6,7 +6,12 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from "../../../store/favorites/favoritesSlice";
-import { addProductBuy } from "../../../store/buy/buySlice";
+import {
+  addProductBuy,
+  removeProductBuy,
+  plusQTY,
+  minusQTY,
+} from "../../../store/buy/buySlice";
 import {
   Action,
   Add,
@@ -39,6 +44,7 @@ const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
     description,
     name,
     rating,
+    qty,
   } = Product;
 
   // Hooks
@@ -90,6 +96,7 @@ const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
+                dispatch(removeProductBuy(Product));
               }}
               className="CoDelete"
             >
@@ -109,9 +116,17 @@ const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
                   }}
                   className="CoR"
                 >
-                  <Button label="-" id="minus" />
-                  <p id="reslute">{Quentity}</p>
-                  <Button label="+" id="plus" />
+                  <Button
+                    label="-"
+                    id="minus"
+                    onClickFunction={() => dispatch(minusQTY(Product))}
+                  />
+                  <p id="reslute">{qty}</p>
+                  <Button
+                    label="+"
+                    id="plus"
+                    onClickFunction={() => dispatch(plusQTY(Product))}
+                  />
                 </div>
               )}
               <div className="CoP">

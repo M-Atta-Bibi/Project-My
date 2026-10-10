@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next";
 import Button from "../../../../Componets/common/Button";
 import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
-import { addProductBuy } from "../../../../store/buy/buySlice";
+import {
+  addProductBuy,
+  plusQTY,
+  minusQTY,
+} from "../../../../store/buy/buySlice";
 import { useDispatch } from "react-redux";
 const ProductDetails = ({
   product,
@@ -55,13 +59,13 @@ const ProductDetails = ({
           <div id="Container-Qty">
             <p id="Text-Qty">{t("Qty")}</p>
             <Button
-              onClickFunction={() => CounterQty("decrease")}
+              onClickFunction={() => dispatch(minusQTY(product))}
               label="-"
               id="minus"
             />
             <p id="reslute">{Quentity}</p>
             <Button
-              onClickFunction={() => CounterQty("increase")}
+              onClickFunction={() => dispatch(plusQTY(product))}
               label="+"
               id="plus"
             />
