@@ -12,6 +12,7 @@ import {
   plusQTY,
   minusQTY,
 } from "../../../store/buy/buySlice";
+import Button from "../../../Componets/common/Button";
 import {
   Action,
   Add,
@@ -27,12 +28,10 @@ import {
   LinkDetails,
   Price,
   RatingRow,
-  RiviewsCount,
   Title,
 } from "./styles";
-import Button from "../../../Componets/common/Button";
 
-const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
+const List = ({ Product, showBuy = false, showList = true }) => {
   // ال بروب ال بدي استقبلها من داتا
   const {
     id,
@@ -50,10 +49,10 @@ const List = ({ Product, showBuy = false, showList = true, Quentity }) => {
   // Hooks
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
+  const dispatch = useDispatch();
 
   // State
   const favorites = useSelector((state) => state.favorite.Favorites);
-  const dispatch = useDispatch();
   const isFavorites = favorites.some((item) => item.id === id);
 
   return (

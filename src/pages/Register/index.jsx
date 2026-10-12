@@ -1,5 +1,4 @@
 import Button from "../../Componets/common/Button";
-import InputComponent from "../../Componets/common/inputs/input-component/InputComponent";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { InputTypes } from "../../constants/enums";
@@ -15,10 +14,11 @@ import { FaFacebook } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const Register = () => {
+  // States
   const { t } = useTranslation();
-  //متحول لحفظ قيمة onSubmit
   const [submittedValues, setSubmittedValues] = useState(null);
-  //------------------------------
+
+  //Formik
   const Formik = useFormik({
     initialValues: {
       fName: "",
@@ -33,6 +33,8 @@ const Register = () => {
       setSubmittedValues(values);
     },
   });
+
+  // Function
   //مساعدة لمنع تكرار الاشياء المربوطة ب اسم
   const connectField = (name) => ({
     name,
@@ -45,6 +47,7 @@ const Register = () => {
     },
     errorMessage: Formik.touched[name] && Formik.errors[name],
   });
+
   //استدعاء الحقول
   const Fields = [
     {
@@ -89,15 +92,14 @@ const Register = () => {
       ...connectField("IsAgree"),
     },
   ];
+
   return (
-    <div className="container">
+    <>
       <Header />
-      {/*---------------------------------------------------------- */}
       <Main>
         <Card>
           <h2 className="h2-Text">{t("Create Account")} </h2>
           <p className="Join-text">{t("Join DKUST today _ its free")} </p>
-
           <Form onSubmit={Formik.handleSubmit}>
             <div className="fields-container">
               {Fields?.map((item) => (
@@ -135,9 +137,8 @@ const Register = () => {
           {t("Back to Home")}
         </Link>
       </Main>
-      {/*---------------------------------------------------------- */}
       <Footer />
-    </div>
+    </>
   );
 };
 export default Register;

@@ -9,18 +9,21 @@ import { Link, useNavigate } from "react-router-dom";
 import pathConstants from "../../routes/pathConstants";
 import { useTranslation } from "react-i18next";
 import Button from "../../Componets/common/Button";
-import { FaShoppingBag } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Buy = () => {
-  const navigate = useNavigate();
+  // Hooks
+  const { t } = useTranslation();
+
+  // States
   const productsBuy = useSelector((states) => states.buy.productBuy);
+  const navigate = useNavigate();
   const subTotal = productsBuy.reduce(
     (sum, item) => sum + item.price * item.qty,
     0,
   );
   const tax = Number((subTotal * 0.08).toFixed(2));
   const total = subTotal + tax;
-  const { t } = useTranslation();
 
   return (
     <>
@@ -72,7 +75,7 @@ const Buy = () => {
 
         {productsBuy?.length === 0 && (
           <div className="Co2">
-            <FaShoppingBag />
+            <FaShoppingCart />
             <p>Your cart is empty</p>
             <Button
               label="Browse Products"

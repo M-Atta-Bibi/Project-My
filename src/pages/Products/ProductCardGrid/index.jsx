@@ -34,10 +34,10 @@ const Grid = ({ Product, showDetails }) => {
   // Hooks
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
+  const dispatch = useDispatch();
 
   // State
   const favorites = useSelector((state) => state.favorite.Favorites);
-  const dispatch = useDispatch();
   const isFavorites = favorites.some((item) => item.id === id);
 
   return (

@@ -98,11 +98,20 @@ export const FooterIcons = styled.div`
     display: flex;
     gap: 20px;
     align-items: center;
-    font-size: 18px;
-    color: #a5b3c6;
-    cursor: pointer;
-    &:hover {
-      color: #00c875;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      color: #a5b3c6;
+      cursor: pointer;
+      &:hover {
+        background-color: #00c875;
+        color: wheat;
+      }
     }
   }
   @media (max-width: 768px) {
