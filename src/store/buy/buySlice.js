@@ -12,9 +12,9 @@ const BuySlice = createSlice({
       const product = action.payload;
       const existing = state.productBuy.find((item) => item.id === product.id);
       if (existing) {
-        existing.qty += 1;
+        existing.qty += product.qty;
       } else {
-        state.productBuy.push({ ...product, qty: 1 });
+        state.productBuy.push({ ...product });
       }
       localStorage.setItem("buy", JSON.stringify(state.productBuy));
     },

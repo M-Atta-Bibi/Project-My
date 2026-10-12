@@ -13,6 +13,7 @@ import {
 import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
 import { FaHeart } from "react-icons/fa";
 import Checkbox from "../../../../Componets/common/inputs/checkbox-component/checkbox";
+import { useState } from "react";
 
 const ProductDetails = ({ product, Feature, addToCart }) => {
   // ال بروب ال بدي استقبلها من داتا
@@ -25,7 +26,6 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
     description,
     name,
     rating,
-    qty,
     id,
   } = product;
 
@@ -36,6 +36,7 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
   const activeLanguage = i18n.language;
   const favorites = useSelector((state) => state.favorite.Favorites);
   const isFavorites = favorites.some((item) => item.id === id);
+  const [qty, setQty] = useState(1);
 
   return (
     <>
@@ -78,13 +79,15 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
           <div id="Container-Qty">
             <p id="Text-Qty">{t("Qty")}</p>
             <Button
-              onClickFunction={() => dispatch(minusQTY(product))}
+              onClickFunction={() => {
+                qty > 1 ? setQty((q) => q - 1) : setQty(1);
+              }}
               label="-"
               id="minus"
             />
             <p id="reslute">{qty}</p>
             <Button
-              onClickFunction={() => dispatch(plusQTY(product))}
+              onClickFunction={() => setQty((q) => q + 1)}
               label="+"
               id="plus"
             />
@@ -97,7 +100,9 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
             />
 
             <Button
-              onClickFunction={() => dispatch(addProductBuy(product))}
+              onClickFunction={() =>
+                dispatch(addProductBuy({ ...product, qty: qty }))
+              }
               label={t("Buy Now")}
               id="BN"
             />
