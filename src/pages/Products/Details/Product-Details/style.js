@@ -11,7 +11,7 @@ export const ImgBox = styled.div`
   background-color: ${({ color }) => color || "#1e3aba"};
   border-end-start-radius: 12px;
   border-start-start-radius: 12px;
-  height: 540px;
+  height: 549px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -128,7 +128,7 @@ export const DataProduct = styled.div`
   }
   #Container-Button {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     gap: 10px;
   }
   .form-check-input {
@@ -160,7 +160,11 @@ export const DataProduct = styled.div`
       background-color: #d5ffd5;
     }
   }
-  .BN2 {
+  #BN2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     background-color: var(--white-color);
     color: var(--gray-text-400);
     border: 2px solid var(--gray-text-400);
