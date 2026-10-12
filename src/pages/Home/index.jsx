@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import { FAQHeader, FAQSection } from "./style";
@@ -8,7 +7,9 @@ import Button from "../../Componets/common/Button";
 import { useTranslation } from "react-i18next";
 
 function Home() {
+  // Hooks
   const { t } = useTranslation();
+
   return (
     <>
       <Header />

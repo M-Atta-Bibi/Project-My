@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { getAccessToken, clearAccessToken } from "../../helpers/cookies";
 import pathConstants from "../../routes/pathConstants";
 import { FiHeart } from "react-icons/fi";
+import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import {
   CoBut,
@@ -26,6 +27,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme("");
   const favorites = useSelector((state) => state.favorite.Favorites);
+  const buy = useSelector((state) => state.buy.productBuy);
   const navigate = useNavigate();
 
   // Function
@@ -45,22 +47,16 @@ const Header = () => {
         {/*------------------------*/}
         <NavWrapper $isOpen={isOpen}>
           <NavLink
-            to={pathConstants.Buy}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {t("Buy")}
-          </NavLink>
-          <NavLink
-            to="/Home"
+            to={pathConstants.Home}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("HOME")}
           </NavLink>
           <NavLink
-            to="/ABOUT"
+            to={pathConstants.About}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            {t("ABOUT")}{" "}
+            {t("ABOUT")}
           </NavLink>
           <NavLink
             to="/PORTFOLIO"
@@ -69,19 +65,19 @@ const Header = () => {
             {t("PORTFOLIO")}
           </NavLink>
           <NavLink
-            to="/products"
+            to={pathConstants.Products}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("PRODUCTS")}
           </NavLink>
           <NavLink
-            to="/SERVICES"
+            to={pathConstants.Services}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("SERVICES")}
           </NavLink>
           <NavLink
-            to="/BLOG"
+            to={pathConstants.Blog}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("BLOG")}
@@ -93,7 +89,7 @@ const Header = () => {
             {t("RESOURCES")}
           </NavLink>
           <NavLink
-            to="/Quiz"
+            to={pathConstants.Quiz}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("QUIZ")}
@@ -115,14 +111,14 @@ const Header = () => {
           ) : (
             <>
               <NavLink
-                to="/login"
+                to={pathConstants.Login}
                 border="true"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {t("LOGIN")}
               </NavLink>
               <NavLink
-                to="/register"
+                to={pathConstants.Register}
                 border="true"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
@@ -142,14 +138,28 @@ const Header = () => {
           <MenuIcon onClick={() => setIsOpen(!isOpen)}>
             <BsListUl />
           </MenuIcon>
-          <div className="CoFavorites">
-            {favorites?.length > 0 && <span>{favorites.length}</span>}
-            <NavLink
-              to="/Favorites"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              {<FiHeart size={16} />}
-            </NavLink>
+          <div className="CoLi">
+            <div className="CoF">
+              {favorites?.length > 0 && (
+                <span className="Sf">{favorites.length}</span>
+              )}
+              <NavLink
+                to={pathConstants.Favorites}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {<FiHeart size={16} />}
+              </NavLink>
+            </div>
+
+            <div className="CoB">
+              {buy?.length > 0 && <span className="Sb">{buy.length}</span>}
+              <NavLink
+                to={pathConstants.Buy}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {<FaShoppingCart />}
+              </NavLink>
+            </div>
           </div>
         </CoBut>
         {/*------------------------*/}

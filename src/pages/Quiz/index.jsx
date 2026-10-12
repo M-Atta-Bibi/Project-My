@@ -6,33 +6,18 @@ import QuestionArray from "../../Data/QuestionArray";
 import QuestionArrayAR from "../../Data/QuestionArrayAR";
 import QuestionCard from "./question-card";
 import { useFormik } from "formik";
-import { object } from "yup";
 import { ContainerQuestion, Introduction, Main } from "./style";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Quiz = () => {
+  // States
   const { t, i18n } = useTranslation();
-  const ArrayUsed = () => {
-    if (i18n?.language === "ar") {
-      return QuestionArrayAR;
-    } else {
-      return QuestionArray;
-    }
-  };
-  const quetionArray = ArrayUsed();
   const [score, setScore] = useState(0);
   const [isFinshed, setIsFinshed] = useState(false);
-  const classBadge = () => {
-    if (score === quetionArray?.length) return "perfect";
-    if (score >= quetionArray?.length / 2) return "pass";
-    return "fail";
-  };
-  const classMessage = () => {
-    if (score === quetionArray?.length) return "perfectM";
-    if (score >= quetionArray?.length / 2) return "passM";
-    return "failM";
-  };
+  const quetionArray = ArrayUsed();
+
+  // Formik
   const Formik = useFormik({
     initialValues: {
       1: "",
@@ -59,16 +44,38 @@ const Quiz = () => {
       });
     },
   });
+
+  // Function
+  const classBadge = () => {
+    if (score === quetionArray?.length) return "perfect";
+    if (score >= quetionArray?.length / 2) return "pass";
+    return "fail";
+  };
+
+  const classMessage = () => {
+    if (score === quetionArray?.length) return "perfectM";
+    if (score >= quetionArray?.length / 2) return "passM";
+    return "failM";
+  };
+
   const TryB = () => {
     setScore(0);
     setIsFinshed(false);
     Formik.resetForm();
   };
+
+  const ArrayUsed = () => {
+    if (i18n?.language === "ar") {
+      return QuestionArrayAR;
+    } else {
+      return QuestionArray;
+    }
+  };
+
   return (
     <>
       <Header />
-      {/*----------------------------------------------------------------------------------- */}
-      <div>
+      <>
         <Introduction>
           <h1>{t("Test Your Knowledge")} </h1>
           <p>
@@ -140,7 +147,7 @@ const Quiz = () => {
             {/*----------------------------------------------------------------------------------- */}
           </ContainerQuestion>
         </Main>
-      </div>
+      </>
       <Footer />
     </>
   );

@@ -17,13 +17,12 @@ import { setAccessToken } from "../../helpers/cookies";
 import { useTranslation } from "react-i18next";
 
 function Login() {
+  // States
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   const navigation = useNavigate();
   const Location = useLocation();
-  //متحول لحفظ قيمة onSubmit
-  const [submittedValues, setSubmittedValues] = useState(null);
-  //------------------------------
+
+  // Formik
   const Formik = useFormik({
     initialValues: {
       Email: "",
@@ -36,6 +35,8 @@ function Login() {
       navigation(redirectTo, { replace: true });
     },
   });
+
+  // Function
   //مساعدة لمنع تكرار الاشياء المربوطة ب اسم
   const connectField = (name) => ({
     name,
@@ -48,6 +49,7 @@ function Login() {
     },
     errorMessage: Formik.touched[name] && Formik.errors[name],
   });
+
   //استدعاء الحقول
   const Fields = [
     {
@@ -71,7 +73,6 @@ function Login() {
   return (
     <>
       <Header />
-      {/*---------------------------------BODY------------------------ */}
       <Main>
         <Card>
           <h2 className="h2-Text ">{t("Welcome Back")} </h2>
@@ -106,7 +107,6 @@ function Login() {
           {t("Back to Home")}
         </Link>
       </Main>
-      {/*----------------------------------FOOTER---------------------- */}
       <Footer />
     </>
   );

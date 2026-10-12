@@ -1,24 +1,24 @@
 import { useTranslation } from "react-i18next";
 import Button from "../../../../Componets/common/Button";
-import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
+import { useDispatch } from "react-redux";
 import {
   addProductBuy,
   plusQTY,
   minusQTY,
 } from "../../../../store/buy/buySlice";
-import { useDispatch } from "react-redux";
-const ProductDetails = ({
-  product,
-  Feature,
-  Quentity,
-  CounterQty,
-  addToCart,
-}) => {
-  const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
-  const activeLanguage = i18n.language;
+import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
+
+const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
+  // ال بروب ال بدي استقبلها من داتا
   const { price, reviews, color, badge, category, description, name, rating } =
     product;
+
+  // Hooks
+  const dispatch = useDispatch();
+  // States
+  const { t, i18n } = useTranslation();
+  const activeLanguage = i18n.language;
+
   return (
     <>
       <ContainerCart>
