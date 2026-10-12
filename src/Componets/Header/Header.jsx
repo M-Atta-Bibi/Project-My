@@ -28,6 +28,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme("");
   const favorites = useSelector((state) => state.favorite.Favorites);
   const buy = useSelector((state) => state.buy.productBuy);
+  const qty = buy.reduce((sum, item) => sum + item.qty, 0);
   const navigate = useNavigate();
 
   // Function
@@ -152,7 +153,7 @@ const Header = () => {
             </div>
 
             <div className="CoB">
-              {buy?.length > 0 && <span className="Sb">{buy.length}</span>}
+              {buy?.length > 0 && <span className="Sb">{qty}</span>}
               <NavLink
                 to={pathConstants.Buy}
                 className={({ isActive }) => (isActive ? "active" : "")}

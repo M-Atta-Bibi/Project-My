@@ -3,7 +3,6 @@ import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
 import List from "../Products/ProductCardList";
-import { useState } from "react";
 import { Main } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import pathConstants from "../../routes/pathConstants";
@@ -48,7 +47,7 @@ const Buy = () => {
               </p>
             </div>
             <div className="CoOrder">
-              <h3>Order Summary</h3>
+              <h3>{t("Order Summary")}</h3>
               <div className="CoHe">
                 {productsBuy?.map((item) => (
                   <div key={item.id} className="CoBo">
@@ -56,18 +55,18 @@ const Buy = () => {
                   </div>
                 ))}
                 <div className="CoBo">
-                  <p>Subtotal</p> ${subTotal}
+                  <p>{t("Subtotal")}</p> ${subTotal}
                 </div>
                 <div className="CoBo">
-                  <p>tax (8%)</p> ${tax}
+                  <p>{t("Tax (8%)")}</p> ${tax}
                 </div>
                 <div className="CoTo">
-                  <span>Total</span> ${total}
+                  <span>{t("Total")}</span> ${total}
                 </div>
                 <div className="CoButton">
-                  <Button label="Proceed to Checkout" />
+                  <Button label={t("Proceed to Checkout")} />
                 </div>
-                <p>Secure checkout</p>
+                <p>{t("Secure checkout")}</p>
               </div>
             </div>
           </div>
@@ -76,9 +75,9 @@ const Buy = () => {
         {productsBuy?.length === 0 && (
           <div className="Co2">
             <FaShoppingCart />
-            <p>Your cart is empty</p>
+            <p>{t("Your cart is empty")}</p>
             <Button
-              label="Browse Products"
+              label={t("Browse Products")}
               onClickFunction={() => navigate(pathConstants.Products)}
             />
           </div>

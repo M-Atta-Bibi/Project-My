@@ -1,23 +1,41 @@
 import { useTranslation } from "react-i18next";
 import Button from "../../../../Componets/common/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addProductBuy,
   plusQTY,
   minusQTY,
 } from "../../../../store/buy/buySlice";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../../../store/favorites/favoritesSlice";
 import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
+import { FaHeart } from "react-icons/fa";
+import Checkbox from "../../../../Componets/common/inputs/checkbox-component/checkbox";
 
-const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
+const ProductDetails = ({ product, Feature, addToCart }) => {
   // ال بروب ال بدي استقبلها من داتا
-  const { price, reviews, color, badge, category, description, name, rating } =
-    product;
+  const {
+    price,
+    reviews,
+    color,
+    badge,
+    category,
+    description,
+    name,
+    rating,
+    qty,
+    id,
+  } = product;
 
   // Hooks
   const dispatch = useDispatch();
   // States
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
+  const favorites = useSelector((state) => state.favorite.Favorites);
+  const isFavorites = favorites.some((item) => item.id === id);
 
   return (
     <>
@@ -45,7 +63,8 @@ const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
           <span id="first"> {category?.[activeLanguage]} </span>
           <h2>{name?.[activeLanguage]}</h2>
           <p id="second">
-            ⭐⭐⭐⭐⭐ {rating} out of 5-{reviews}
+            ⭐⭐⭐⭐⭐ {rating} {t("out of 5-")}
+            {reviews}
           </p>
           <p id="third">{description?.[activeLanguage]}</p>
           <div className="Cula">
@@ -54,7 +73,7 @@ const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
             </ul>
           </div>
           <p id="price">
-            ${price} <p>/month</p>
+            ${price} <p>{t("/month")}</p>
           </p>
           <div id="Container-Qty">
             <p id="Text-Qty">{t("Qty")}</p>
@@ -63,7 +82,7 @@ const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
               label="-"
               id="minus"
             />
-            <p id="reslute">{Quentity}</p>
+            <p id="reslute">{qty}</p>
             <Button
               onClickFunction={() => dispatch(plusQTY(product))}
               label="+"
@@ -71,10 +90,15 @@ const ProductDetails = ({ product, Feature, Quentity, addToCart }) => {
             />
           </div>
           <div id="Container-Button">
-            <Button onClickFunction={addToCart} label="Add to Cart" id="ATC" />
+            <Button
+              onClickFunction={addToCart}
+              label={t("Add to Cart")}
+              id="ATC"
+            />
+
             <Button
               onClickFunction={() => dispatch(addProductBuy(product))}
-              label="Buy Now"
+              label={t("Buy Now")}
               id="BN"
             />
           </div>

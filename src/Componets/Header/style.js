@@ -153,7 +153,7 @@ export const CoBut = styled.div`
       .Sf {
         position: absolute;
         top: 6px;
-        right: 247px;
+        inset-inline-end: 247px;
         width: 16px;
         height: 16px;
         border-radius: 50%;
@@ -184,7 +184,7 @@ export const CoBut = styled.div`
       .Sb {
         position: absolute;
         top: 6px;
-        right: 207px;
+        inset-inline-end: 207px;
         width: 16px;
         height: 16px;
         border-radius: 50%;

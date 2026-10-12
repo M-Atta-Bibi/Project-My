@@ -100,7 +100,7 @@ const Grid = ({ Product, showDetails }) => {
           <FooterRow>
             <Price>
               ${price}
-              <span>/mo</span>
+              <span>{t("/mo")}</span>
             </Price>
             {showDetails && (
               <>

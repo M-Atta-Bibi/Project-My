@@ -1,6 +1,8 @@
 import styled from "styled-components";
 export const ContainerCart = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -9,7 +11,7 @@ export const ImgBox = styled.div`
   background-color: ${({ color }) => color || "#1e3aba"};
   border-end-start-radius: 12px;
   border-start-start-radius: 12px;
-  height: 578px;
+  height: 540px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -125,8 +127,12 @@ export const DataProduct = styled.div`
     align-items: center;
   }
   #Container-Button {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     gap: 10px;
+  }
+  .form-check-input {
+    display: none !important;
   }
   #ATC {
     background-color: var(--btn-green);
@@ -134,7 +140,7 @@ export const DataProduct = styled.div`
     color: var(--white-color);
     border: 1px solid #07d600;
     border-radius: 12px;
-    width: 400px;
+    width: 100%;
     height: 50px;
     cursor: pointer;
     &:hover {
@@ -147,7 +153,19 @@ export const DataProduct = styled.div`
     font-weight: bold;
     border: 2px solid #009600;
     border-radius: 12px;
-    width: 130px;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    &:hover {
+      background-color: #d5ffd5;
+    }
+  }
+  .BN2 {
+    background-color: var(--white-color);
+    color: var(--gray-text-400);
+    border: 2px solid var(--gray-text-400);
+    border-radius: 12px;
+    width: 100%;
     height: 50px;
     cursor: pointer;
     &:hover {
