@@ -130,7 +130,7 @@ const List = ({ Product, showBuy = false, showList = true }) => {
               )}
               <div className="CoP">
                 ${price}
-                <p>/mo</p>
+                <p>{t("/mo")}</p>
               </div>
             </Price>
           </HeaderRow>

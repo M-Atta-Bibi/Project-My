@@ -8,10 +8,6 @@ import i18next from "i18next";
 import { Co1, Container } from "./style";
 
 const Blog = () => {
-  // Hooks
-  const [i18n, t] = useTranslation();
-  const activeLanguage = i18n.language;
-
   // UI/UX
   const [loading, setLoading] = useState(true);
 
