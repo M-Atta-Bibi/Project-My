@@ -100,6 +100,17 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
             />
 
             <Button
+              onClickFunction={() => {
+                !isFavorites
+                  ? dispatch(addToFavorites(product))
+                  : dispatch(removeFromFavorites(product));
+              }}
+              icon={<FaHeart color={isFavorites ? "red" : ""} />}
+              label={isFavorites ? t("saved") : t("save")}
+              id="BN2"
+            />
+
+            <Button
               onClickFunction={() =>
                 dispatch(addProductBuy({ ...product, qty: qty }))
               }
