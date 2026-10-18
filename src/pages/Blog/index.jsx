@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
-import { useTranslation } from "react-i18next";
 import { GetBlog } from "../../services/Blog/blog.service";
 import i18next from "i18next";
 import { Co1, Container } from "./style";

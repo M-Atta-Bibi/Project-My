@@ -11,5 +11,6 @@ const pathConstants = {
   Blog: "/Blog",
   About: "/About",
   Buy: "/Product-Buy",
+  Contact: "/Contact",
 };
 export default pathConstants;

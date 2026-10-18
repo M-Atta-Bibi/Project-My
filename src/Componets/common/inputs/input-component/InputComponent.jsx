@@ -21,7 +21,15 @@ const InputComponent = ({ itemObject, ...flatProps }) => {
       <Form.Group className="form-group" controlId={name}>
         <Form.Label>{fieldLabel}</Form.Label>
         <Form.Control
-          type={type === "password" && showPassword ? "text" : type}
+          as={type === "textarea" ? "textarea" : undefined}
+          rows={type === "textarea" ? 4 : undefined}
+          type={
+            type === "password" && showPassword
+              ? "text"
+              : type === "textarea"
+                ? undefined
+                : type
+          }
           placeholder={placeholder}
           value={fieldValue ?? ""}
           name={name}
