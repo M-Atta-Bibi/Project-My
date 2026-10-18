@@ -37,6 +37,9 @@ export const Main = styled.div`
       display: flex;
       align-items: flex-end;
       a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
         padding: 8px 20px;
         color: var(--btn-green);
         background-color: var(--white-color);

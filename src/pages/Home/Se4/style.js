@@ -32,6 +32,9 @@ export const Main = styled.div`
       border-radius: 12px;
       width: 192px;
       padding: 12px 28px;
+      &:hover {
+        background-color: var(--btn-green-hover);
+      }
     }
     .BuSi {
       font-size: 14px;
@@ -42,6 +45,9 @@ export const Main = styled.div`
       width: 50%;
       padding: 12px 28px;
       width: 109px;
+      &:hover {
+        border: 1px solid var(--white-color);
+      }
     }
   }
 `;
