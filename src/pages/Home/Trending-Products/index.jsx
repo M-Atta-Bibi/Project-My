@@ -9,6 +9,8 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { FaChevronRight } from "react-icons/fa";
+import pathConstants from "../../../routes/pathConstants";
 
 const Se2 = () => {
   // States
@@ -45,7 +47,9 @@ const Se2 = () => {
             </p>
           </div>
           <div className="SeR">
-            <Link>View All</Link>
+            <Link to={pathConstants.Products}>
+              View All <FaChevronRight />
+            </Link>
           </div>
         </div>
 

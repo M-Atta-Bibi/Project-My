@@ -18,7 +18,7 @@ export const Main = styled.div`
       font-size: 12px;
       padding: 4px 12px;
       color: var(--text-green);
-      background-color: rgba(103, 251, 111, 0.5);
+      background-color: rgba(34, 197, 94, 0.2);
       border: 1px solid var(--text-green);
       border-radius: 12px;
       width: 136px;
@@ -46,6 +46,9 @@ export const Main = styled.div`
       justify-content: flex-start;
       gap: 8px;
       .BuEP {
+        display: flex;
+        align-items: center;
+        gap: 3px;
         font-size: 14px;
         color: var(--white-color);
         background-color: var(--btn-green);
@@ -53,6 +56,9 @@ export const Main = styled.div`
         border-radius: 12px;
         width: 186px;
         padding: 12px 28px;
+        &:hover {
+          background-color: var(--btn-green-hover);
+        }
       }
       .BuTTQ {
         font-size: 14px;
@@ -63,6 +69,9 @@ export const Main = styled.div`
         width: 50%;
         padding: 12px 28px;
         width: 147px;
+        &:hover {
+          border: 1px solid var(--white-color);
+        }
       }
     }
   }
@@ -83,6 +92,7 @@ export const Main = styled.div`
       text-align: center;
       width: 100%;
       height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
       h3 {
         font-size: 30px;
         color: var(--text-green);

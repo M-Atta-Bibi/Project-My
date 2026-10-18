@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../Componets/common/Button";
 import { Co1, Main } from "./style";
+import { FaShoppingCart } from "react-icons/fa";
+import pathConstants from "../../../routes/pathConstants";
+
 const Se1 = () => {
+  const navigation = useNavigate();
+
   return (
     <Co1>
       <Main>
@@ -15,8 +21,17 @@ const Se1 = () => {
             innovate faster than ever before.
           </p>
           <div className="CoBu">
-            <Button label="Explore Products" className="BuEP" />
-            <Button label="Take the Quiz" className="BuTTQ" />
+            <Button
+              onClickFunction={() => navigation(pathConstants.Products)}
+              label="Explore Products"
+              className="BuEP"
+              icon={<FaShoppingCart />}
+            />
+            <Button
+              onClickFunction={() => navigation(pathConstants.Quiz)}
+              label="Take the Quiz"
+              className="BuTTQ"
+            />
           </div>
         </div>
 
