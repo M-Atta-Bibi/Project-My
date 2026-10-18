@@ -6,4 +6,5 @@ export const InputTypes = {
   TEL: "tel",
   CHECKBOX: "checkbox",
   RADIO: "radio",
+  TEXTAREA: "textarea",
 };

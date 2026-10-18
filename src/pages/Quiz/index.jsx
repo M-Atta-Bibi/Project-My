@@ -15,6 +15,14 @@ const Quiz = () => {
   const { t, i18n } = useTranslation();
   const [score, setScore] = useState(0);
   const [isFinshed, setIsFinshed] = useState(false);
+
+  const ArrayUsed = () => {
+    if (i18n?.language === "ar") {
+      return QuestionArrayAR;
+    } else {
+      return QuestionArray;
+    }
+  };
   const quetionArray = ArrayUsed();
 
   // Formik
@@ -62,14 +70,6 @@ const Quiz = () => {
     setScore(0);
     setIsFinshed(false);
     Formik.resetForm();
-  };
-
-  const ArrayUsed = () => {
-    if (i18n?.language === "ar") {
-      return QuestionArrayAR;
-    } else {
-      return QuestionArray;
-    }
   };
 
   return (

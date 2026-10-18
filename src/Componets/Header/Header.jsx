@@ -96,7 +96,7 @@ const Header = () => {
             {t("QUIZ")}
           </NavLink>
           <NavLink
-            to="/CONTACT"
+            to={pathConstants.Contact}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {t("CONTACT")}
