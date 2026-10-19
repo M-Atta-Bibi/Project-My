@@ -19,7 +19,7 @@ export const Main = styled.div`
       margin: 0 auto;
       width: 48px;
       height: 48px;
-      background-color: #d8ffd8;
+      background-color: var(--background-perfect);
       border-radius: 12px;
       display: flex;
       align-items: center;

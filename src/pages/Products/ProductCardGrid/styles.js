@@ -29,11 +29,21 @@ export const ImgBox = styled.div`
   }
   .form-check-label svg {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
+    top: 6px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
     stroke-width: 1;
+    cursor: pointer;
+  }
+  .Heart {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 10px;
+    left: 315px;
   }
 `;
 export const Badge = styled.span`

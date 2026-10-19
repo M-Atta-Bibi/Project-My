@@ -51,7 +51,7 @@ const Grid = ({ Product, showDetails }) => {
               )}
             </>
           )}
-          <span onClick={(e) => e.stopPropagation()}>
+          <span className="Heart" onClick={(e) => e.stopPropagation()}>
             <Checkbox
               id={id}
               fieldLabel={<FaHeart color={isFavorites ? "red" : "white"} />}

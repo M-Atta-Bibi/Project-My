@@ -32,11 +32,21 @@ export const ImgBox = styled.div`
   }
   .form-check-label svg {
     position: absolute;
-    top: 6px;
-    right: 6px;
+    top: 4px;
+    right: 4px;
     width: 12px;
     height: 12px;
     stroke-width: 1;
+    cursor: pointer;
+  }
+  span {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 2px;
+    left: 66px;
   }
 `;
 export const HeaderRow = styled.div`

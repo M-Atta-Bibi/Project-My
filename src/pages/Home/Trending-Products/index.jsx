@@ -12,8 +12,12 @@ import "swiper/css/navigation";
 import { FaChevronRight } from "react-icons/fa";
 import pathConstants from "../../../routes/pathConstants";
 import Button from "../../../Componets/common/Button";
+import { useTranslation } from "react-i18next";
 
 const Se2 = () => {
+  // Hooks
+  const { t } = useTranslation();
+
   // States
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,16 +44,17 @@ const Se2 = () => {
       <Main>
         <div className="CoPL">
           <div className="SeL">
-            <span>Hot Right Now</span>
-            <h2>Trending Products</h2>
+            <span>{t("Hot Right Now")}</span>
+            <h2>{t("Trending Products")}</h2>
             <p>
-              Our most popular tools and solutions, loved by teams around the
-              world.
+              {t(
+                "Our most popular tools and solutions, loved by teams around the world.",
+              )}
             </p>
           </div>
           <div className="SeR">
             <Link to={pathConstants.Products}>
-              View All <FaChevronRight />
+              {t("View All")} <FaChevronRight />
             </Link>
           </div>
         </div>
