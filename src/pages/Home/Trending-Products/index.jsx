@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FaChevronRight } from "react-icons/fa";
 import pathConstants from "../../../routes/pathConstants";
+import Button from "../../../Componets/common/Button";
 
 const Se2 = () => {
   // States
@@ -58,7 +59,7 @@ const Se2 = () => {
             slidesPerView={3}
             spaceBetween={20}
             modules={[Pagination, Navigation]}
-            navigation={true}
+            navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
             pagination={{ clickable: true }}
           >
             {data?.map((item) => (
@@ -67,6 +68,8 @@ const Se2 = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          <Button className="custom-next" label=">" />
+          <Button className="custom-prev" label="<" />
         </div>
       </Main>
     </C1>
