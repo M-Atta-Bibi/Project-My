@@ -55,8 +55,8 @@ export const Main = styled.div`
   }
   //-------------------------------------------
   /* إخفاء السهم الافتراضي */
-  .swiper-button-prev,
-  .swiper-button-next {
+  .custom-prev,
+  .custom-next {
     width: 36px !important;
     height: 36px !important;
     border: 1px solid #a1b1c6 !important;
@@ -66,43 +66,27 @@ export const Main = styled.div`
     align-items: center !important;
     justify-content: center !important;
     color: #a1b1c6 !important;
+    z-index: 20;
+    &:hover {
+      color: var(--btn-green) !important;
+      border: 1px solid var(--btn-green) !important;
+    }
   }
-
-  /* إزالة رمز Swiper الأصلي */
-  .swiper-button-prev::after,
-  .swiper-button-next::after {
-    content: "" !important;
-    display: none !important;
+  .custom-prev {
+    position: absolute;
+    top: 200px;
+    left: -15px;
   }
-
-  /* السهم الصغير */
-  .swiper-button-prev::before {
-    content: "‹" !important;
-    font-size: 26px !important;
-    color: #a1b1c6 !important;
-    line-height: 1 !important;
+  .custom-next {
+    position: absolute;
+    top: 200px;
+    left: 1080px;
   }
-
-  .swiper-button-next::before {
-    content: "›" !important;
-    font-size: 26px !important;
-    color: #a1b1c6 !important;
-    line-height: 1 !important;
-  }
-
-  /* مكان الأسهم */
-  .swiper-button-prev {
-    left: -12px !important;
-  }
-
-  .swiper-button-next {
-    right: -12px !important;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    z-index: 20 !important;
+  //-------------------------------------------
+  .custom-prev.swiper-button-disabled,
+  .custom-next.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
   }
   //-------------------------------------------
   .CoProducts .swiper-pagination {
@@ -117,7 +101,7 @@ export const Main = styled.div`
     transition: all 0.3s ease;
   }
   .CoProducts .swiper-pagination-bullet-active {
-    width: 45px;
+    width: 35px;
     height: 12px;
     border-radius: 20px;
     background: var(--btn-green);
