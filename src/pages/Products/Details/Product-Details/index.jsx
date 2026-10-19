@@ -41,7 +41,7 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
   return (
     <>
       <ContainerCart>
-        <ImgBox color={color?.[activeLanguage]}>
+        <ImgBox color={color}>
           {/*------------------------للمربع الابيض--------------------- */}
           <svg
             width="54"

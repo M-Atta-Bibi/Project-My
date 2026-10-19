@@ -61,12 +61,13 @@ export const Main = styled.div`
     height: 36px !important;
     border: 1px solid #a1b1c6 !important;
     border-radius: 50% !important;
-    background-color: white !important;
+    background-color: var(--white-color) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     color: #a1b1c6 !important;
     z-index: 20;
+    cursor: pointer;
     &:hover {
       color: var(--btn-green) !important;
       border: 1px solid var(--btn-green) !important;

@@ -1,9 +1,9 @@
 import { FaHeart } from "react-icons/fa";
-import { Main } from "./style";
+import { Co1, Main } from "./style";
 
 const Se3 = () => {
   return (
-    <div>
+    <Co1>
       <Main>
         <div className="CoIn">
           <span>
@@ -33,7 +33,7 @@ const Se3 = () => {
           </p>
         </div>
       </Main>
-    </div>
+    </Co1>
   );
 };
 export default Se3;

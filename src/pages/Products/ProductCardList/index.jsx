@@ -60,7 +60,7 @@ const List = ({ Product, showBuy = false, showList = true }) => {
       <Container showBuy={showBuy}>
         <ImgBox color={color}>
           {showList && (
-            <span>
+            <span onClick={(e) => e.stopPropagation()}>
               <Checkbox
                 id={id}
                 fieldLabel={<FaHeart color={isFavorites ? "red" : "#cbcbcb"} />}
