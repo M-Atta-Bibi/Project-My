@@ -18,6 +18,7 @@ i18next.use(initReactI18next).init({
 });
 const MainApp = () => {
   const { i18n } = useTranslation();
+  console.log(i18next);
   useEffect(() => {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n?.language === "ar" ? "rtl" : "ltr";
