@@ -57,6 +57,7 @@ export const Main = styled.div`
         width: 186px;
         padding: 12px 28px;
         cursor: pointer;
+        transition: background-color 0.5s ease;
         &:hover {
           background-color: var(--btn-green-hover);
         }
@@ -71,6 +72,7 @@ export const Main = styled.div`
         padding: 12px 28px;
         width: 147px;
         cursor: pointer;
+        transition: border 0.5s ease;
         &:hover {
           border: 1px solid var(--white-color);
         }
