@@ -106,7 +106,7 @@ const Products = () => {
               {Categories?.map((Category) => (
                 <Buttons
                   active={category === Category}
-                  onClick={() => SearchU("Key", Category)}
+                  onClick={() => SearchU("category", Category)}
                 >
                   {Category}
                 </Buttons>
