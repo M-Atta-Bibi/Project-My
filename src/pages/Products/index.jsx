@@ -17,16 +17,19 @@ import {
   DisplayMode,
   NumberArray,
 } from "./styles";
+import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
   // Hooks
   const { t, i18n } = useTranslation();
   const activeLanguage = i18n.language;
+  const [searchParams, setSearchParams] = useSearchParams();
 
   //  UI/UX
   const [loading, setLoading] = useState(true);
 
   // States
+  const category = searchParams.get("category") || "All";
   const [data, setData] = useState([]);
   const [ViewMode, setViewMode] = useState("grid");
   const [SelectedCategory, setSelectedCategory] = useState("All");
@@ -61,15 +64,26 @@ const Products = () => {
   const FilterProducts = useMemo(() => {
     return data?.filter(
       (item) =>
-        SelectedCategory === "All" ||
-        item.category?.[activeLanguage] === SelectedCategory,
+        category === "All" || item.category?.[activeLanguage] === category,
     );
-  }, [SelectedCategory, activeLanguage, data]);
+  }, [category, activeLanguage, data]);
 
   //    مشان نعرضها ب كونسل
   const addToCart = (Product) => {
     console.log(Product);
   };
+
+  //------------------
+  const SearchU = (key, value) => {
+    const newParams = new URLSearchParams(searchParams);
+    if (value === "All") {
+      newParams.delete(key);
+    } else {
+      newParams.set(key, value);
+    }
+    setSearchParams(newParams);
+  };
+
   return (
     <>
       <Header />
@@ -91,8 +105,8 @@ const Products = () => {
             <ContainerButtonFilter>
               {Categories?.map((Category) => (
                 <Buttons
-                  active={SelectedCategory === Category}
-                  onClick={() => setSelectedCategory(Category)}
+                  active={category === Category}
+                  onClick={() => SearchU("Key", Category)}
                 >
                   {Category}
                 </Buttons>

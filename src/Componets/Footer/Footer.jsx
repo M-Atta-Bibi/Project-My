@@ -39,7 +39,11 @@ const Footer = () => {
               <ul>
                 <li>{t("123 Business Street, Suite 100,")} </li>
                 <li>{t("New York, NY 10001")} </li>
-                <li>{t("Phone: +1 234 567 8900")} </li>
+                <li>
+                  <Link to="tel:12345678900">
+                    {t("Phone: +1 234 567 8900")}
+                  </Link>{" "}
+                </li>
                 <li>{t("Email: info@dkust.com")} </li>
               </ul>
             </FooterSaction>
