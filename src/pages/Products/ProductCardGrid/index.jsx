@@ -25,6 +25,7 @@ import {
   RiviewsCount,
   Title,
 } from "./styles";
+import { useState } from "react";
 
 const Grid = ({ Product, showDetails }) => {
   // ال بروب ال بدي استقبلها من داتا
@@ -112,7 +113,7 @@ const Grid = ({ Product, showDetails }) => {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      dispatch(addProductBuy(Product));
+                      dispatch(addProductBuy([Product]));
                     }}
                   >
                     🛒{t("Add")}

@@ -7,13 +7,13 @@ import Header from "../../Componets/Header/Header";
 import { useTranslation } from "react-i18next";
 import { GetProducts } from "../../services/Products/products.service";
 import i18next from "i18next";
+import PageHero from "../../Componets/page-hero";
 import {
   Buttons,
   Container,
   ContainerAll,
   ContainerButton,
   ContainerButtonFilter,
-  ContainerText,
   DisplayMode,
   NumberArray,
 } from "./styles";
@@ -89,16 +89,12 @@ const Products = () => {
       <Header />
       <ContainerAll>
         {/*------------------------------------Section Hero---------------------------------*/}
-        <ContainerText>
-          <div>
-            <h1>{t("Our Products")} </h1>
-            <p>
-              {t(
-                "Explore our range of software,Ai tools,hardware Kits,and roboticssolutions built for modern teams.",
-              )}
-            </p>
-          </div>
-        </ContainerText>
+        <PageHero
+          title={t("Our Products")}
+          description={t(
+            "Explore our range of software,Ai tools,hardware Kits,and roboticssolutions built for modern teams.",
+          )}
+        />
         {/*-------------------------لتنسيق الازرار و تغير قيمتها ----------------------*/}
         <ContainerButton>
           <div className="mar">

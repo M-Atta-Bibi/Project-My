@@ -62,7 +62,7 @@ const Contact = () => {
       ...connectField("Subject"),
     },
     {
-      type: InputTypes.TEXT,
+      type: "textarea",
       fieldLabel: t("Message"),
       placeholder: "How can we help?",
       ...connectField("Message"),

@@ -29,5 +29,12 @@ export const Main = styled.div`
         background-color: var(--btn-green-hover);
       }
     }
+    #Message {
+      padding: 10px 12px;
+      min-height: 110px;
+      max-height: 450px;
+      overflow: hidden auto;
+      resize: vertical;
+    }
   }
 `;
