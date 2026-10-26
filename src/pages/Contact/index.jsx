@@ -9,11 +9,14 @@ import Button from "../../Componets/common/Button";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Main } from "./style";
+import { SchemaContact } from "../../schema/schemaContact";
+import { FiCheck } from "react-icons/fi";
 
 const Contact = () => {
   // States
   const { t } = useTranslation();
   const [submittedValues, setSubmittedValues] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   // Formik
   const Formik = useFormik({
     initialValues: {
@@ -22,8 +25,10 @@ const Contact = () => {
       Subject: "",
       Message: "",
     },
+    validationSchema: SchemaContact(t),
     onSubmit: (values) => {
       setSubmittedValues(values);
+      setIsSubmitted(true);
     },
   });
 
@@ -76,19 +81,31 @@ const Contact = () => {
         title="Contact Us"
         description="Send a question and our team will get back to you."
       />
-      <Main>
-        <Form onSubmit={Formik.handleSubmit}>
-          <div className="CoInput">
-            {Fields?.map((item) => (
-              <InputProvider key={item.name} itemObject={item} />
-            ))}
-            <Button
-              className="SubmitB"
-              type="submit"
-              label={t("Send Message")}
-            />
+      <Main success={isSubmitted}>
+        {!isSubmitted ? (
+          <Form onSubmit={Formik.handleSubmit}>
+            <div className="CoInput">
+              {Fields?.map((item) => (
+                <InputProvider key={item.name} itemObject={item} />
+              ))}
+              <Button
+                className="SubmitB"
+                type="submit"
+                label={t("Send Message")}
+              />
+            </div>
+          </Form>
+        ) : (
+          <div className="SuccessMessage">
+            <div>
+              <span>
+                <FiCheck size={24} />
+              </span>
+              <h2>Message sent</h2>
+              <p>Thank you. We will reply as soon as possible.</p>
+            </div>
           </div>
-        </Form>
+        )}
       </Main>
       <Footer />
     </>

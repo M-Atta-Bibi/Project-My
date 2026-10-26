@@ -23,10 +23,15 @@ export const Logo = styled.div`
   display: flex;
   gap: 5px;
   align-items: center;
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.1rem;
+  a {
+    text-decoration: none;
+    color: white;
+    cursor: default;
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+    }
   }
 `;
 export const NavWrapper = styled.div`

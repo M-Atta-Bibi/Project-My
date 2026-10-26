@@ -66,23 +66,38 @@ export const FooterSaction = styled.div`
 export const SubmitButton = styled.form`
   display: flex;
   align-items: center;
+  margin-top: 16px;
+  border-radius: 5px;
+  .form-group {
+    margin: 0 !important;
+  }
   .form-control {
     border-radius: 0 !important;
     background-color: var(--white-color);
+    box-shadow: none !important;
+    margin: 0 !important;
+    border-end-start-radius: 5px !important;
+    border-start-start-radius: 5px !important;
   }
   button {
     width: 42px;
     height: 42px;
-    background-color: #00c875;
-    border: 1px solid #dcdcdc;
+    background-color: var(--btn-green);
+    border: 1px solid var(--btn-green);
     border-radius: 0;
     border-start-end-radius: 5px;
     border-end-end-radius: 5px;
-    margin-top: 16px;
     cursor: pointer;
     &:hover {
       background-color: #00b067;
     }
+  }
+  &:focus-within {
+    box-shadow: 0 0 20px rgba(175, 255, 222, 1);
+  }
+  & > div {
+    flex: 1;
+    min-width: 0;
   }
 `;
 export const FooterIcons = styled.div`

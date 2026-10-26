@@ -115,7 +115,10 @@ const Quiz = () => {
                 className="g"
                 label={t("SUBMIT QUIZ")}
                 type="submit"
-                onClickFunction={Formik.handleSubmit}
+                onClickFunction={() => {
+                  Formik.handleSubmit();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               />
             ) : (
               <>

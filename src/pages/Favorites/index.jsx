@@ -39,7 +39,7 @@ const FavoritesPage = () => {
         {favorites?.length > 0 && (
           <div className="Lenght">
             {favorites?.map((item) => (
-              <Grid Product={item} key={item.id} />
+              <Grid Product={item} key={item.id} showDetails={true} />
             ))}
           </div>
         )}

@@ -37,14 +37,26 @@ const Footer = () => {
             <FooterSaction>
               <h5>{t("CONTACT DETAIL")} </h5>
               <ul>
-                <li>{t("123 Business Street, Suite 100,")} </li>
-                <li>{t("New York, NY 10001")} </li>
+                <li>
+                  <Link to="https://www.google.com/maps/search/?api=1&query=123+Business+Street,+Suite+100,+New+York,+NY+10001">
+                    {t("123 Business Street, Suite 100,")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="https://www.google.com/maps/search/?api=1&query=123+Business+Street,+Suite+100,+New+York,+NY+10001">
+                    {t("New York, NY 10001")}
+                  </Link>
+                </li>
                 <li>
                   <Link to="tel:12345678900">
                     {t("Phone: +1 234 567 8900")}
-                  </Link>{" "}
+                  </Link>
                 </li>
-                <li>{t("Email: info@dkust.com")} </li>
+                <li>
+                  <Link to="mailto:info@dkust.com">
+                    {t("Email: info@dkust.com")}
+                  </Link>
+                </li>
               </ul>
             </FooterSaction>
 

@@ -62,7 +62,7 @@ const Se2 = () => {
         <div className="CoProducts">
           <Swiper
             slidesPerView={3}
-            spaceBetween={20}
+            spaceBetween={15}
             modules={[Pagination, Navigation]}
             navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
             pagination={{ clickable: true }}
