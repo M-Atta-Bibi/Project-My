@@ -23,9 +23,11 @@ export const InputStyles = styled.div`
     }
     .form-control:focus {
       border-color: #00c875;
+      box-shadow: 0 0 0 3px rgba(175, 255, 222, 0.5);
     }
     .form-control.is-invalid {
       border-color: #b42318;
+      box-shadow: 0 0 0 3px rgba(255, 175, 175, 0.5);
     }
   }
 
@@ -33,6 +35,7 @@ export const InputStyles = styled.div`
     color: #b42318;
   }
   p {
+    font-size: 12px;
     white-space: nowrap;
     color: #b42318;
   }

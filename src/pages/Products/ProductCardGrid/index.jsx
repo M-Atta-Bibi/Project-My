@@ -25,6 +25,7 @@ import {
   RiviewsCount,
   Title,
 } from "./styles";
+import { useState } from "react";
 
 const Grid = ({ Product, showDetails }) => {
   // ال بروب ال بدي استقبلها من داتا
@@ -49,22 +50,21 @@ const Grid = ({ Product, showDetails }) => {
               {badge?.[activeLanguage] && (
                 <Badge> {badge?.[activeLanguage]}</Badge>
               )}
+              <span className="Heart" onClick={(e) => e.stopPropagation()}>
+                <Checkbox
+                  id={id}
+                  fieldLabel={<FaHeart color={isFavorites ? "red" : "white"} />}
+                  name="favorites"
+                  fieldValue={isFavorites}
+                  onChangeFunction={(checked) => {
+                    checked
+                      ? dispatch(addToFavorites(Product))
+                      : dispatch(removeFromFavorites(Product));
+                  }}
+                />
+              </span>
             </>
           )}
-          <span className="Heart" onClick={(e) => e.stopPropagation()}>
-            <Checkbox
-              id={id}
-              fieldLabel={<FaHeart color={isFavorites ? "red" : "white"} />}
-              name="favorites"
-              fieldValue={isFavorites}
-              onChangeFunction={(checked) => {
-                checked
-                  ? dispatch(addToFavorites(Product))
-                  : dispatch(removeFromFavorites(Product));
-              }}
-            />
-          </span>
-
           {/*------------------------للمربع الابيض--------------------- */}
           <svg
             width="54"
@@ -112,7 +112,7 @@ const Grid = ({ Product, showDetails }) => {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      dispatch(addProductBuy(Product));
+                      dispatch(addProductBuy({ ...Product, qty: 1 }));
                     }}
                   >
                     🛒{t("Add")}

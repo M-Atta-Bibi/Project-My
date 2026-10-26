@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsListUl } from "react-icons/bs";
 import Button from "../common/Button";
@@ -43,7 +43,9 @@ const Header = () => {
       <HeaderContainer>
         {/*------------------------*/}
         <Logo>
-          <h2>DKUST</h2>
+          <Link to={pathConstants.Home}>
+            <h2 to>DKUST</h2>
+          </Link>
         </Logo>
         {/*------------------------*/}
         <NavWrapper $isOpen={isOpen}>

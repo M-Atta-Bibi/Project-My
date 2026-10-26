@@ -38,6 +38,6 @@ export const Main = styled.div`
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 15px;
   }
 `;

@@ -10,10 +10,12 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from "../../../../store/favorites/favoritesSlice";
-import { Badge, ContainerCart, DataProduct, ImgBox } from "./style";
+import { Badge, ButtonSave, ContainerCart, DataProduct, ImgBox } from "./style";
 import { FaHeart } from "react-icons/fa";
 import Checkbox from "../../../../Componets/common/inputs/checkbox-component/checkbox";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import pathConstants from "../../../../routes/pathConstants";
 
 const ProductDetails = ({ product, Feature, addToCart }) => {
   // ال بروب ال بدي استقبلها من داتا
@@ -33,6 +35,7 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
   const dispatch = useDispatch();
   // States
   const { t, i18n } = useTranslation();
+  const navigation = useNavigate();
   const activeLanguage = i18n.language;
   const favorites = useSelector((state) => state.favorite.Favorites);
   const isFavorites = favorites.some((item) => item.id === id);
@@ -99,21 +102,22 @@ const ProductDetails = ({ product, Feature, addToCart }) => {
               id="ATC"
             />
 
-            <Button
-              onClickFunction={() => {
+            <ButtonSave
+              active={isFavorites}
+              onClick={() => {
                 !isFavorites
                   ? dispatch(addToFavorites(product))
                   : dispatch(removeFromFavorites(product));
               }}
-              icon={<FaHeart color={isFavorites ? "red" : ""} />}
-              label={isFavorites ? t("saved") : t("save")}
-              id="BN2"
-            />
+            >
+              <FaHeart /> {isFavorites ? t("saved") : t("save")}
+            </ButtonSave>
 
             <Button
-              onClickFunction={() =>
-                dispatch(addProductBuy({ ...product, qty: qty }))
-              }
+              onClickFunction={() => {
+                navigation(pathConstants.Buy);
+                dispatch(addProductBuy({ ...product, qty: qty }));
+              }}
               label={t("Buy Now")}
               id="BN"
             />

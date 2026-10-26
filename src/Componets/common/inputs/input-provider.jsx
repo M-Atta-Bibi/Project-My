@@ -14,7 +14,8 @@ const InputProvider = ({ itemObject, ...flatProps }) => {
     type === InputTypes.EMAIL ||
     type === InputTypes.PASSWORD ||
     type === InputTypes.NUMBER ||
-    type === InputTypes.TEL
+    type === InputTypes.TEL ||
+    type === InputTypes.TEXTAREA
   ) {
     return <InputComponent itemObject={field} />;
   }

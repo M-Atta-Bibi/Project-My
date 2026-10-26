@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { ContainerQuestion, Introduction, Main } from "./style";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import PageHero from "../../Componets/page-hero";
 
 const Quiz = () => {
   // States
@@ -76,23 +77,23 @@ const Quiz = () => {
     <>
       <Header />
       <>
-        <Introduction>
-          <h1>{t("Test Your Knowledge")} </h1>
-          <p>
-            {t(
-              "Answer the questions below and click Submit to check your score.",
-            )}
-          </p>
-          {!isFinshed ? (
-            <span className="badge-normal">
-              {quetionArray?.length} {t("Questions")}
-            </span>
-          ) : (
-            <span className={`badge-${classBadge()}`}>
-              {t("score")} : {score} / {quetionArray.length}
-            </span>
+        <PageHero
+          title={t("Test Your Knowledge")}
+          description={t(
+            "Answer the questions below and click Submit to check your score.",
           )}
-        </Introduction>
+          children={
+            !isFinshed ? (
+              <span className="badge-normal">
+                {quetionArray?.length} {t("Questions")}
+              </span>
+            ) : (
+              <span className={`badge-${classBadge()}`}>
+                {t("score")} : {score} / {quetionArray.length}
+              </span>
+            )
+          }
+        />
         <Main>
           <ContainerQuestion>
             <h2>{t("Choose the Correct Answer")} </h2>
@@ -114,7 +115,10 @@ const Quiz = () => {
                 className="g"
                 label={t("SUBMIT QUIZ")}
                 type="submit"
-                onClickFunction={Formik.handleSubmit}
+                onClickFunction={() => {
+                  Formik.handleSubmit();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               />
             ) : (
               <>

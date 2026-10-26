@@ -27,6 +27,7 @@ const QuestionCard = ({
           <ContainerQ key={index} className={statusClass}>
             <Checkbox
               key={item}
+              id={item}
               type="radio"
               fieldLabel={item}
               fieldValue={value === item}

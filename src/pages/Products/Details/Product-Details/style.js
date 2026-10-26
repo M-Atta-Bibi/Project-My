@@ -160,20 +160,23 @@ export const DataProduct = styled.div`
       background-color: #d5ffd5;
     }
   }
-  #BN2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background-color: var(--white-color);
-    color: var(--gray-text-400);
-    border: 2px solid var(--gray-text-400);
-    border-radius: 12px;
-    width: 100%;
-    height: 50px;
-    cursor: pointer;
-    &:hover {
-      background-color: #d5ffd5;
-    }
+`;
+export const ButtonSave = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: ${(props) =>
+    props.active ? "var(--background-fail)" : "var(--white-color)"};
+  color: ${(props) => (props.active ? "red" : " var(--gray-text-400)")};
+  border: ${(props) =>
+    props.active ? "2px solid red;" : "2px solid var(--gray-text-400)"};
+  border-radius: 12px;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  &:hover {
+    color: red;
+    border: 2px solid red;
   }
 `;

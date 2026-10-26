@@ -8,7 +8,7 @@ const PageHero = ({ title, description, children }) => {
     <Hero>
       <h1>{t(title)}</h1>
       {description && <p>{t(description)}</p>}
-      {children}
+      <div className="children">{children}</div>
     </Hero>
   );
 };

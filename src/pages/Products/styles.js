@@ -51,30 +51,56 @@ export const ContainerButton = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 0 35px;
+    .ContainerButtonView {
+      display: flex;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--gray-text-400);
+    }
+    .rightS {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      select {
+        background-color: var(--white-color);
+        color: var(--gray-text-500);
+        font-size: 12px;
+        border: 1px solid #d0dae0;
+        border-radius: 12px;
+        outline: none;
+        padding: 8px 12px;
+        &:focus {
+          border: 1px solid var(--btn-green);
+        }
+      }
+    }
   }
 `;
 export const Buttons = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${(props) =>
     props.active ? "var(--btn-green)" : "var(--white-color)"};
   color: ${(props) => (props.active ? "var(--white-color)" : "#596770")};
+  border: ${(props) =>
+    props.border && !props.active ? "1px solid #aebec7" : "none"};
+  border-radius: ${(props) => (props.border ? "12px" : "none")};
   font-size: 12px;
   font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 12px;
+  padding: ${(props) => (props.border ? "6px 16px" : "8px 12px")};
   width: auto;
-  border: none;
-  border: 1px solid
-    ${(props) => (props.active ? "var(--white-color)" : "#b2b9be")};
   cursor: pointer;
   &:hover {
     background-color: ${(props) =>
-      props.active ? "var(--btn-green)" : "#596770"};
-    color: var(--white-color);
+      !props.active && !props.border ? "var(--backgroud-pr)" : ""};
+    border: ${(props) =>
+      props.border && !props.active ? "1px solid var(--btn-green)" : ""};
+    color: ${(props) =>
+      props.border && !props.active ? "var(--btn-green)" : ""};
   }
   &:focus {
-    background-color: ${(props) =>
-      props.active ? "var(--btn-green)" : "#596770"};
-    color: var(--white-color);
+    background-color: ${(props) => (props.active ? "var(--btn-green)" : "")};
   }
 `;
 export const ContainerButtonFilter = styled.div`

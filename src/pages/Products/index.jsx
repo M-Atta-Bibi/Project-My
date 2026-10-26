@@ -1,4 +1,5 @@
-import { BsGridFill, BsListUl } from "react-icons/bs";
+import { BsListUl } from "react-icons/bs";
+import { FiGrid } from "react-icons/fi";
 import Grid from "./ProductCardGrid";
 import List from "./ProductCardList";
 import { useEffect, useMemo, useState } from "react";
@@ -7,13 +8,13 @@ import Header from "../../Componets/Header/Header";
 import { useTranslation } from "react-i18next";
 import { GetProducts } from "../../services/Products/products.service";
 import i18next from "i18next";
+import PageHero from "../../Componets/page-hero";
 import {
   Buttons,
   Container,
   ContainerAll,
   ContainerButton,
   ContainerButtonFilter,
-  ContainerText,
   DisplayMode,
   NumberArray,
 } from "./styles";
@@ -33,6 +34,7 @@ const Products = () => {
   const [data, setData] = useState([]);
   const [ViewMode, setViewMode] = useState("grid");
   const [SelectedCategory, setSelectedCategory] = useState("All");
+  const [sort, setSort] = useState("default");
   const [Quentity, setQuentity] = useState(1);
   const Categories = [
     t("All"),
@@ -62,11 +64,18 @@ const Products = () => {
 
   //     مشان ال فلترة و لعدم تكريرها اكثر من مرة
   const FilterProducts = useMemo(() => {
-    return data?.filter(
-      (item) =>
-        category === "All" || item.category?.[activeLanguage] === category,
-    );
-  }, [category, activeLanguage, data]);
+    return data
+      ?.filter(
+        (item) =>
+          category === "All" || item.category?.[activeLanguage] === category,
+      )
+      ?.sort((first, second) => {
+        if (sort === "price-asc") return first.price - second.price;
+        if (sort === "price-desc") return second.price - first.price;
+        if (sort === "rating") return second.rating - first.rating;
+        return 0;
+      });
+  }, [category, activeLanguage, sort, data]);
 
   //    مشان نعرضها ب كونسل
   const addToCart = (Product) => {
@@ -89,42 +98,50 @@ const Products = () => {
       <Header />
       <ContainerAll>
         {/*------------------------------------Section Hero---------------------------------*/}
-        <ContainerText>
-          <div>
-            <h1>{t("Our Products")} </h1>
-            <p>
-              {t(
-                "Explore our range of software,Ai tools,hardware Kits,and roboticssolutions built for modern teams.",
-              )}
-            </p>
-          </div>
-        </ContainerText>
+        <PageHero
+          title={t("Our Products")}
+          description={t(
+            "Explore our range of software,Ai tools,hardware Kits,and roboticssolutions built for modern teams.",
+          )}
+        />
         {/*-------------------------لتنسيق الازرار و تغير قيمتها ----------------------*/}
         <ContainerButton>
           <div className="mar">
             <ContainerButtonFilter>
               {Categories?.map((Category) => (
                 <Buttons
+                  border={true}
                   active={category === Category}
-                  onClick={() => SearchU("Key", Category)}
+                  onClick={() => SearchU("category", Category)}
                 >
                   {Category}
                 </Buttons>
               ))}
             </ContainerButtonFilter>
-            <div>
-              <Buttons
-                active={ViewMode === "grid"}
-                onClick={() => setViewMode("grid")}
+            <div className="rightS">
+              <select
+                value={sort}
+                onChange={(event) => setSort(event.target.value)}
               >
-                <BsGridFill />
-              </Buttons>
-              <Buttons
-                active={ViewMode === "list"}
-                onClick={() => setViewMode("list")}
-              >
-                <BsListUl />
-              </Buttons>
+                <option value="default">{t("Sort: Default")}</option>
+                <option value="price-asc">{t("Sort: Price Asc")}</option>
+                <option value="price-desc">{t("Sort: Price Desc")}</option>
+                <option value="rating">{t("Sort: Rating")}</option>
+              </select>
+              <div className="ContainerButtonView">
+                <Buttons
+                  active={ViewMode === "grid"}
+                  onClick={() => setViewMode("grid")}
+                >
+                  <FiGrid fontSize={16} />
+                </Buttons>
+                <Buttons
+                  active={ViewMode === "list"}
+                  onClick={() => setViewMode("list")}
+                >
+                  <BsListUl fontSize={16} />
+                </Buttons>
+              </div>
             </div>
           </div>
         </ContainerButton>
