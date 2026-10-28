@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import Checkbox from "../../common/inputs/checkbox-component/checkbox";
 import { FaHeart, FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -12,7 +12,7 @@ import {
   plusQTY,
   minusQTY,
 } from "../../../store/buy/buySlice";
-import Button from "../../../Componets/common/Button";
+import Button from "../../common/button";
 import {
   Action,
   Add,

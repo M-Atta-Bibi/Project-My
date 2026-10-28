@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import Grid from "../Products/ProductCardGrid";
+import Grid from "../../Componets/product-card/Grid-card";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
 import { FiHeart } from "react-icons/fi";
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import { useNavigate } from "react-router-dom";
 import pathConstants from "../../routes/pathConstants";
 import { Main } from "./style";

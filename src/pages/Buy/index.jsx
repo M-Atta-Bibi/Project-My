@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
-import List from "../Products/ProductCardList";
+import List from "../../Componets/product-card/List-card";
 import { Main } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import pathConstants from "../../routes/pathConstants";
 import { useTranslation } from "react-i18next";
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Buy = () => {

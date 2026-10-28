@@ -1,5 +1,5 @@
 import InputComponent from "../common/inputs/input-component/InputComponent";
-import Button from "../common/Button";
+import Button from "../common/button";
 import { useTranslation } from "react-i18next";
 import pathConstants from "../../routes/pathConstants";
 import {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { useFormik } from "formik";
 import { InputTypes } from "../../constants/enums";
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import InputProvider from "../../Componets/common/inputs/input-provider";
 import { Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";

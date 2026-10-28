@@ -11,7 +11,7 @@ export const ImgBox = styled.div`
   background-color: ${({ color }) => color || "#1e3aba"};
   border-end-start-radius: 12px;
   border-start-start-radius: 12px;
-  height: 549px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -1,21 +1,16 @@
 import { useTranslation } from "react-i18next";
-import Button from "../../../../Componets/common/Button";
+import Button from "../../common/button";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addProductBuy,
-  plusQTY,
-  minusQTY,
-} from "../../../../store/buy/buySlice";
+import { addProductBuy, plusQTY, minusQTY } from "../../../store/buy/buySlice";
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../../../store/favorites/favoritesSlice";
+} from "../../../store/favorites/favoritesSlice";
 import { Badge, ButtonSave, ContainerCart, DataProduct, ImgBox } from "./style";
 import { FaHeart } from "react-icons/fa";
-import Checkbox from "../../../../Componets/common/inputs/checkbox-component/checkbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import pathConstants from "../../../../routes/pathConstants";
+import pathConstants from "../../../routes/pathConstants";
 
 const ProductDetails = ({ product, Feature, addToCart }) => {
   // ال بروب ال بدي استقبلها من داتا

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import environment from "../../environment";
-import Button from "../common/Button";
+import Button from "../common/button";
 import { languages } from "../../assets/locals/index";
 
 const LanguageSwitcher = () => {

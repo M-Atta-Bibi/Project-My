@@ -5,15 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
-import ProductDetails from "./Product-Details";
-import Grid from "../ProductCardGrid";
-import Footer from "../../../Componets/Footer/Footer";
-import Header from "../../../Componets/Header/Header";
+import ProductDetails from "../../Componets/product-card/Details-card";
+import Grid from "../../Componets/product-card/Grid-card";
+import Footer from "../../Componets/Footer/Footer";
+import Header from "../../Componets/Header/Header";
 import { useTranslation } from "react-i18next";
 import {
   GetProducts,
   GetProductsById,
-} from "../../../services/Products/products.service";
+} from "../../services/Products/products.service";
 import i18next from "i18next";
 import { ContainerDetails, ContainerDetailsPage, Main } from "./style";
 

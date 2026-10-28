@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsListUl } from "react-icons/bs";
-import Button from "../common/Button";
+import Button from "../common/button";
 import { useTheme } from "../../context/theme/useTheme";
 import LanguageSwitcher from "../language-switcher";
 import { useTranslation } from "react-i18next";

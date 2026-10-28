@@ -1,4 +1,4 @@
-import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import Checkbox from "../common/inputs/checkbox-component/checkbox";
 import { ContainerCard, ContainerQ } from "./style";
 
 const QuestionCard = ({
