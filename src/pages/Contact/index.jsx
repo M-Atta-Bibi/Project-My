@@ -5,7 +5,7 @@ import Footer from "../../Componets/Footer/Footer";
 import PageHero from "../../Componets/page-hero";
 import { Form } from "react-bootstrap";
 import InputProvider from "../../Componets/common/inputs/input-provider";
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Main } from "./style";

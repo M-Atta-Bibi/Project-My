@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Checkbox from "../../../Componets/common/inputs/checkbox-component/checkbox";
+import Checkbox from "../../common/inputs/checkbox-component/checkbox";
 import { FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {

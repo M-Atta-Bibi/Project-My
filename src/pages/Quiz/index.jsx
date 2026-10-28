@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import QuestionArray from "../../Data/QuestionArray";
 import QuestionArrayAR from "../../Data/QuestionArrayAR";
-import QuestionCard from "./question-card";
+import QuestionCard from "../../Componets/questions-card";
 import { useFormik } from "formik";
 import { ContainerQuestion, Introduction, Main } from "./style";
 import { Link } from "react-router-dom";

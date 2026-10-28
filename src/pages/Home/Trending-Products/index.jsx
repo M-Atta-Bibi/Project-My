@@ -3,7 +3,7 @@ import { C1, Main } from "./style";
 import { useEffect, useState } from "react";
 import i18next from "i18next";
 import { GetProducts } from "../../../services/Products/products.service";
-import Grid from "../../Products/ProductCardGrid";
+import Grid from "../../../Componets/product-card/Grid-card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FaChevronRight } from "react-icons/fa";
 import pathConstants from "../../../routes/pathConstants";
-import Button from "../../../Componets/common/Button";
+import Button from "../../../Componets/common/button";
 import { useTranslation } from "react-i18next";
 
 const Se2 = () => {

@@ -1,4 +1,4 @@
-import Button from "../../../Componets/common/Button";
+import Button from "../../../Componets/common/button";
 import { Co1, Main } from "./style";
 import pathConstants from "../../../routes/pathConstants";
 import { useNavigate } from "react-router-dom";

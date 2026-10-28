@@ -1,4 +1,4 @@
-import Button from "../../Componets/common/Button";
+import Button from "../../Componets/common/button";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { InputTypes } from "../../constants/enums";

@@ -1,7 +1,7 @@
 import { BsListUl } from "react-icons/bs";
 import { FiGrid } from "react-icons/fi";
-import Grid from "./ProductCardGrid";
-import List from "./ProductCardList";
+import Grid from "../../Componets/product-card/Grid-card";
+import List from "../../Componets/product-card/List-card";
 import { useEffect, useMemo, useState } from "react";
 import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";

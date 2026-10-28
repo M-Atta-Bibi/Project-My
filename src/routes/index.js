@@ -6,7 +6,7 @@ const LoginPage = React.lazy(() => import("../pages/Login"));
 const ProductsPage = React.lazy(() => import("../pages/Products"));
 const QuizPage = React.lazy(() => import("../pages/Quiz"));
 const RegisterPage = React.lazy(() => import("../pages/Register"));
-const DetailsPage = React.lazy(() => import("../pages/Products/Details"));
+const DetailsPage = React.lazy(() => import("../pages/Details"));
 const FavoritesPage = React.lazy(() => import("../pages/Favorites"));
 const ServicesPage = React.lazy(() => import("../pages/Services"));
 const BlogPage = React.lazy(() => import("../pages/Blog"));

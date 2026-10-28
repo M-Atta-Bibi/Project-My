@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 import { InputStyles } from "./style";
 import { useState } from "react";
-import Button from "../../Button";
+import Button from "../../button";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const InputComponent = ({ itemObject, ...flatProps }) => {
