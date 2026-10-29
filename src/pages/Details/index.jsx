@@ -15,7 +15,7 @@ import {
   GetProductsById,
 } from "../../services/Products/products.service";
 import i18next from "i18next";
-import { DetailsProduct, Main } from "./style";
+import { DetailsProduct, DetailsWrspper, Main } from "./style";
 
 const DetailsPage = () => {
   // Hoks
@@ -73,7 +73,7 @@ const DetailsPage = () => {
   const Feature = () => {
     return (
       <>
-        {data?.features?.[activeLanguage].map((item, index) => (
+        {data?.features?.[activeLanguage]?.map((item, index) => (
           <li key={index} className="m-0">
             <FiCheckCircle color="#22c55e" size={20} /> {item}
           </li>
@@ -104,7 +104,7 @@ const DetailsPage = () => {
           </div>
         </div>
         {/*-----------------------قسم العرض-------------------*/}
-        <DetailsPage>
+        <DetailsWrspper>
           <div className="Container">
             <p className="back-navigation">
               <Link to="/products">{t("← Back to Products")}</Link>
@@ -137,7 +137,7 @@ const DetailsPage = () => {
               ))}
             </Swiper>
           </div>
-        </DetailsPage>
+        </DetailsWrspper>
       </Main>
       <Footer />
     </>

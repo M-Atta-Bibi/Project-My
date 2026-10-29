@@ -33,7 +33,7 @@ export const Main = styled.div`
     }
   }
 `;
-export const DetailsPage = styled.div`
+export const DetailsWrspper = styled.div`
   background-color: var(--backgroud-pr);
   padding: 48px 24px;
   .Container {
