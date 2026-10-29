@@ -7,33 +7,33 @@ export const Main = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 64px 0;
-  .CoPL {
+  .ContainerHeader {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
-    .SeL {
+    .SectionLeft {
       display: grid;
       flex-direction: column;
       justify-content: space-between;
       span {
         font-size: 12px;
         margin-bottom: 8px;
-        color: var(--btn-green);
+        color: var(--main-color);
         font-weight: bold;
       }
 
       h2 {
         font-size: 30px;
-        color: var(--gray-text-800);
+        color: var(--dark-color);
         font-weight: bold;
       }
       p {
         font-size: 14px;
-        color: var(--gray-text-400);
+        color: var(--color-gray-400);
         margin-top: 8px;
       }
     }
-    .SeR {
+    .SectionRight {
       display: flex;
       align-items: flex-end;
       a {
@@ -41,16 +41,16 @@ export const Main = styled.div`
         align-items: center;
         gap: 5px;
         padding: 8px 20px;
-        color: var(--btn-green);
+        color: var(--main-color);
         background-color: var(--white-color);
         font-size: 14px;
-        border: 1px solid var(--btn-green);
+        border: 1px solid var(--main-color);
         border-radius: 12px;
         text-decoration: none;
       }
     }
   }
-  .CoProducts {
+  .ContainerProducts {
     position: relative;
   }
   //-------------------------------------------
@@ -69,8 +69,8 @@ export const Main = styled.div`
     z-index: 20;
     cursor: pointer;
     &:hover {
-      color: var(--btn-green) !important;
-      border: 1px solid var(--btn-green) !important;
+      color: var(--main-color) !important;
+      border: 1px solid var(--main-color) !important;
     }
   }
   .custom-prev {
@@ -90,21 +90,21 @@ export const Main = styled.div`
     cursor: not-allowed;
   }
   //-------------------------------------------
-  .CoProducts .swiper-pagination {
+  .swiper-pagination {
     position: relative;
     margin-top: 25px;
   }
-  .CoProducts .swiper-pagination-bullet {
+  .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background: #e2e8f0;
     opacity: 1;
     transition: all 0.3s ease;
   }
-  .CoProducts .swiper-pagination-bullet-active {
+  .swiper-pagination-bullet-active {
     width: 35px;
     height: 12px;
     border-radius: 20px;
-    background: var(--btn-green);
+    background: var(--main-color);
   }
 `;

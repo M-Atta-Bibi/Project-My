@@ -1,8 +1,8 @@
 import styled from "styled-components";
-export const Co1 = styled.div`
+export const ContainerPage = styled.div`
   background-color: var(--backgroud-pr);
 `;
-export const Container = styled.div`
+export const Main = styled.div`
   padding: 64px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin: 0 auto;
   .CoArticale {
     background-color: var(--white-color);
-    border: 1px solid var(--gray-text);
+    border: 1px solid var(--color-gray-200);
     border-radius: 12px;
     width: 100%;
     height: 100%;
@@ -19,12 +19,12 @@ export const Container = styled.div`
     h3 {
       margin: 12px 0;
       font-size: 16px;
-      color: var(--gray-text-800);
+      color: var(--dark-color);
     }
     p {
       margin: 0 0 16px 0;
       font-size: 14px;
-      color: var(--gray-text-500);
+      color: var(--color-gray-400);
     }
   }
 `;

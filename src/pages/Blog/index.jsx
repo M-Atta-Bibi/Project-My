@@ -4,7 +4,7 @@ import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
 import { GetBlog } from "../../services/Blog/blog.service";
 import i18next from "i18next";
-import { Co1, Container } from "./style";
+import { Co1, Container, ContainerPage, Main } from "./style";
 
 const Blog = () => {
   // UI/UX
@@ -37,8 +37,8 @@ const Blog = () => {
         title="DKUST Blog"
         description="Updates, product notes, and engineering stories from the team."
       />
-      <Co1>
-        <Container>
+      <ContainerPage>
+        <Main>
           {data?.map((item) => (
             <div className="CoArticale" key={item.id}>
               <small>{item.date}</small>
@@ -46,8 +46,8 @@ const Blog = () => {
               <p>{item.description}</p>
             </div>
           ))}
-        </Container>
-      </Co1>
+        </Main>
+      </ContainerPage>
       <Footer />
     </>
   );

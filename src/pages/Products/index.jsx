@@ -11,12 +11,12 @@ import i18next from "i18next";
 import PageHero from "../../Componets/page-hero";
 import {
   Buttons,
-  Container,
-  ContainerAll,
-  ContainerButton,
-  ContainerButtonFilter,
+  Main,
   DisplayMode,
-  NumberArray,
+  FilterBar,
+  FilterProduct,
+  ProductsSeaction,
+  ResultHeader,
 } from "./styles";
 import { useSearchParams } from "react-router-dom";
 
@@ -96,7 +96,7 @@ const Products = () => {
   return (
     <>
       <Header />
-      <ContainerAll>
+      <Main>
         {/*------------------------------------Section Hero---------------------------------*/}
         <PageHero
           title={t("Our Products")}
@@ -105,9 +105,9 @@ const Products = () => {
           )}
         />
         {/*-------------------------لتنسيق الازرار و تغير قيمتها ----------------------*/}
-        <ContainerButton>
-          <div className="mar">
-            <ContainerButtonFilter>
+        <FilterBar>
+          <div className="ContainerBar">
+            <FilterProduct>
               {Categories?.map((Category) => (
                 <Buttons
                   border={true}
@@ -117,8 +117,8 @@ const Products = () => {
                   {Category}
                 </Buttons>
               ))}
-            </ContainerButtonFilter>
-            <div className="rightS">
+            </FilterProduct>
+            <div className="Controls-wrapper">
               <select
                 value={sort}
                 onChange={(event) => setSort(event.target.value)}
@@ -128,7 +128,7 @@ const Products = () => {
                 <option value="price-desc">{t("Sort: Price Desc")}</option>
                 <option value="rating">{t("Sort: Rating")}</option>
               </select>
-              <div className="ContainerButtonView">
+              <div className="Filter-section">
                 <Buttons
                   active={ViewMode === "grid"}
                   onClick={() => setViewMode("grid")}
@@ -144,14 +144,14 @@ const Products = () => {
               </div>
             </div>
           </div>
-        </ContainerButton>
+        </FilterBar>
         {/*-------------------------قسم العرض--------------------------*/}
-        <Container>
-          <div className="pad">
-            <NumberArray>
+        <ProductsSeaction>
+          <div className="ContainerPage">
+            <ResultHeader>
               {FilterProducts.length}
               {t("products found")}
-            </NumberArray>
+            </ResultHeader>
             {/*--------------------لعرض المصفوفة الخاصة ب منتجات--------------------------*/}
             <DisplayMode ViewMode={ViewMode}>
               {FilterProducts?.map((item) =>
@@ -173,8 +173,8 @@ const Products = () => {
               )}
             </DisplayMode>
           </div>
-        </Container>
-      </ContainerAll>
+        </ProductsSeaction>
+      </Main>
       <Footer />
     </>
   );

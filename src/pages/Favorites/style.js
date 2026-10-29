@@ -5,16 +5,16 @@ export const Main = styled.div`
   width: 100%;
   height: 100%;
   padding: 40px 24px;
-  .NoLenght {
+  .NoLenghtSection {
     padding: 80px 16px;
     text-align: center;
     svg {
-      color: #d1d5db;
+      color: var(--color-gray-200);
       font-size: 64px;
       margin-bottom: 16px;
     }
     p {
-      color: var(--gray-text-400);
+      color: var(--gray-text-600);
       font-size: 20px;
       margin-bottom: 24px;
     }
@@ -23,17 +23,17 @@ export const Main = styled.div`
       height: 100%;
       color: var(--white-color);
       font-size: 14px;
-      background-color: var(--btn-green);
+      background-color: var(--main-color);
       border: 1px solid #16a34a;
       border-radius: 12px;
       padding: 12px 32px;
 
       &:hover {
-        background-color: var(--btn-green-hover);
+        background-color: var(--main-color-hover);
       }
     }
   }
-  .Lenght {
+  .LenghtSection {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;

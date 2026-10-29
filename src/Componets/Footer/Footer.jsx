@@ -11,11 +11,11 @@ import {
 } from "react-icons/fa";
 import {
   Container,
-  FooterColumn,
-  FooterContainer,
-  FooterIcons,
-  FooterSaction,
+  ColumnContent,
+  Main,
   SubmitButton,
+  UpperSection,
+  SectionIcons,
 } from "./style";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
@@ -31,10 +31,10 @@ const Footer = () => {
 
   return (
     <Container>
-      <FooterContainer>
-        <FooterColumn>
-          <div className="A">
-            <FooterSaction>
+      <Main>
+        <UpperSection>
+          <div className="ContainerColumns">
+            <ColumnContent>
               <h5>{t("CONTACT DETAIL")} </h5>
               <ul>
                 <li>
@@ -58,9 +58,9 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </FooterSaction>
+            </ColumnContent>
 
-            <FooterSaction>
+            <ColumnContent>
               <h5>{t("QUICK LINKS")} </h5>
               <ul>
                 <li>
@@ -79,9 +79,9 @@ const Footer = () => {
                   <Link to={pathConstants}>{t("Contact Us")} </Link>
                 </li>
               </ul>
-            </FooterSaction>
+            </ColumnContent>
 
-            <FooterSaction>
+            <ColumnContent>
               <h5>{t("OUR SERVICES")} </h5>
               <ul>
                 <li>
@@ -100,9 +100,9 @@ const Footer = () => {
                   <Link to={pathConstants}>{t("Data Analytics")} </Link>
                 </li>
               </ul>
-            </FooterSaction>
+            </ColumnContent>
 
-            <FooterSaction>
+            <ColumnContent>
               <div>
                 <h5>{t("SUBSCRIBE NEWSLETTER")} </h5>
                 <p>{t("Get the latest updates and news.")}</p>
@@ -121,11 +121,11 @@ const Footer = () => {
                   label={<FaPaperPlane style={{ color: "white" }} />}
                 />
               </SubmitButton>
-            </FooterSaction>
+            </ColumnContent>
           </div>
-        </FooterColumn>
+        </UpperSection>
 
-        <FooterIcons>
+        <SectionIcons>
           <p>{t("Copyright © DKUST | All Rights Reserved")}</p>
           <div>
             <Link to="https://facebook.com">
@@ -141,8 +141,8 @@ const Footer = () => {
               <FaInstagram />
             </Link>
           </div>
-        </FooterIcons>
-      </FooterContainer>
+        </SectionIcons>
+      </Main>
     </Container>
   );
 };

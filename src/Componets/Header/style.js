@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Container = styled.div`
-  background-color: var(--header-color);
+  background-color: var(--secondary-color);
   color: white;
   width: 100%;
   height: 64px;
@@ -25,7 +25,7 @@ export const Logo = styled.div`
   align-items: center;
   a {
     text-decoration: none;
-    color: white;
+    color: var(--white-color);
     cursor: default;
     h2 {
       font-size: 20px;
@@ -40,40 +40,40 @@ export const NavWrapper = styled.div`
   justify-content: center;
   gap: 20px;
   span {
-    color: var(--btn-green);
+    color: var(--main-color);
   }
   .BuLogOut {
     cursor: pointer;
     background: var(--main-gradient);
-    border: 1px solid #22c55e;
+    border: 1px solid var(--main-color);
     padding: 6px 16px;
-    color: #22c55e;
+    color: var(--main-color);
     &:hover {
-      background: #22c55e;
+      background: var(--main-color);
       color: var(--white-color);
     }
   }
   a {
-    color: var(--nav-link-color);
+    color: var(--color-gray-200);
     text-decoration: none;
     font-size: 12px;
     &:hover {
-      color: var(--nav-link-color-hover);
+      color: var(--color-gray-100);
     }
     &:focus {
-      color: #16a34a;
+      color: var(--main-color);
     }
     &.active {
-      color: #16a34a;
+      color: var(--main-color);
     }
     border: 1px solid transparent;
     border-radius: 4px;
     &[border="true"] {
-      border: 1px solid #22c55e;
+      border: 1px solid var(--main-color);
       padding: 6px 16px;
-      color: #22c55e;
+      color: var(--main-color);
       &:hover {
-        background-color: #22c55e;
+        background-color: var(--main-color);
         color: var(--white-color);
       }
     }
@@ -102,7 +102,7 @@ export const CoBut = styled.div`
   align-items: center;
   gap: 8px;
   .CoLng {
-    color: var(--nav-link-color);
+    color: var(--color-gray-200);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -117,7 +117,7 @@ export const CoBut = styled.div`
       background-color: transparent;
       border: none;
       padding: 6px 16px;
-      color: #22c55e;
+      color: var(--main-color);
       cursor: pointer;
     }
     ul {
@@ -143,7 +143,7 @@ export const CoBut = styled.div`
     border-radius: 50%;
     background-color: transparent;
     border: none;
-    color: var(--nav-link-color);
+    color: var(--color-gray-200);
     font-size: 16px;
     cursor: pointer;
     &:hover {
@@ -162,7 +162,7 @@ export const CoBut = styled.div`
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background-color: #22c55e;
+        background-color: var(--main-color);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -176,12 +176,12 @@ export const CoBut = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--nav-link-color);
+        color: var(--color-gray-200);
         &:hover {
           background-color: rgba(255, 255, 255, 0.15);
         }
         &.active {
-          background-color: #16a34a;
+          background-color: var(--main-color);
         }
       }
     }
@@ -193,7 +193,7 @@ export const CoBut = styled.div`
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background-color: #22c55e;
+        background-color: var(--main-color);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -207,12 +207,12 @@ export const CoBut = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--nav-link-color);
+        color: var(--color-gray-200);
         &:hover {
           background-color: rgba(255, 255, 255, 0.15);
         }
         &.active {
-          background-color: #16a34a;
+          background-color: var(--main-color);
         }
       }
     }

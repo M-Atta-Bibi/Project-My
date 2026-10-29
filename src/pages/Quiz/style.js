@@ -1,53 +1,5 @@
 import styled from "styled-components";
 
-export const Introduction = styled.div`
-  background: #1a365d;
-  width: 100%;
-  height: 335px;
-  color: var(--white-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 45px 20px;
-  h1 {
-    font-size: 36px;
-    font-size: 600;
-    margin-bottom: 16px;
-  }
-  p {
-    font-size: 14px;
-    margin-bottom: 24px;
-  }
-  .badge-normal {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: var(--white-color);
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 14px;
-  }
-  .badge-perfect {
-    background-color: #38a169;
-    color: var(--white-color);
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 12px;
-  }
-  .badge-pass {
-    background-color: #f1b319;
-    color: var(--white-color);
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 12px;
-  }
-  .badge-fail {
-    background-color: #e53e3e;
-    color: var(--white-color);
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 12px;
-  }
-`;
 export const Main = styled.div`
   background-color: var(--backgroud-pr);
   padding: 64px 24px;
@@ -60,6 +12,7 @@ export const ContainerQuestion = styled.div`
   h2 {
     font-size: 24px;
     margin-bottom: 40px;
+    color: var(--dark-color);
   }
 
   .perfectM {
@@ -72,11 +25,12 @@ export const ContainerQuestion = styled.div`
     border-radius: 12px;
     p {
       font-size: 14px;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
     }
     h3 {
       font-size: 24px;
       margin-bottom: 4px;
+      color: var(--dark-color);
     }
   }
   .passM {
@@ -89,11 +43,12 @@ export const ContainerQuestion = styled.div`
     border-radius: 12px;
     p {
       font-size: 14px;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
     }
     h3 {
       font-size: 24px;
       margin-bottom: 4px;
+      color: var(--dark-color);
     }
   }
   .failM {
@@ -106,15 +61,16 @@ export const ContainerQuestion = styled.div`
     border-radius: 12px;
     p {
       font-size: 14px;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
     }
     h3 {
       font-size: 24px;
       margin-bottom: 4px;
+      color: var(--dark-color);
     }
   }
   .g {
-    background-color: var(--btn-green);
+    background-color: var(--main-color);
     color: var(--white-color);
     border: none;
     border-radius: 4px;
@@ -124,7 +80,7 @@ export const ContainerQuestion = styled.div`
     font-size: 14px;
     transition: background 0.2s;
     &:hover {
-      background-color: var(--btn-green-hover);
+      background-color: var(--main-color-hover);
     }
   }
   .containerB {
@@ -135,8 +91,8 @@ export const ContainerQuestion = styled.div`
     margin: 30px 0;
     .b {
       background-color: var(--white-color);
-      color: #4b5563;
-      border: 1px solid #b2b3b6;
+      color: var(--color-gray-400);
+      border: 1px solid var(--color-gray-200);
       border-radius: 4px;
       cursor: pointer;
       padding: 12px 32px;
@@ -149,9 +105,8 @@ export const ContainerQuestion = styled.div`
         font-weight: 600;
       }
       &:hover {
-        background-color: #f9fafb;
         color: var(--black-color);
-        border: 1px solid #7c7d81;
+        border: 1px solid var(--color-gray-300);
       }
     }
   }

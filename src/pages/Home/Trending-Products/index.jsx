@@ -42,8 +42,8 @@ const Se2 = () => {
   return (
     <C1>
       <Main>
-        <div className="CoPL">
-          <div className="SeL">
+        <div className="ContainerHeader">
+          <div className="SectionLeft">
             <span>{t("Hot Right Now")}</span>
             <h2>{t("Trending Products")}</h2>
             <p>
@@ -52,14 +52,14 @@ const Se2 = () => {
               )}
             </p>
           </div>
-          <div className="SeR">
+          <div className="SectionRight">
             <Link to={pathConstants.Products}>
               {t("View All")} <FaChevronRight />
             </Link>
           </div>
         </div>
 
-        <div className="CoProducts">
+        <div className="ContainerProducts">
           <Swiper
             slidesPerView={3}
             spaceBetween={15}

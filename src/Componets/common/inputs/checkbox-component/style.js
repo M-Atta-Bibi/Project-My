@@ -13,7 +13,7 @@ export const CheckStyles = styled.div`
     width: 16px;
     height: 16px;
     border-radius: 3px;
-    accent-color: var(--btn-green);
+    accent-color: var(--main-color);
   }
   .Text-error {
     white-space: nowrap;

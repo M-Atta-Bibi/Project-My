@@ -11,14 +11,14 @@ export const Main = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  .SeLeft {
+  .SectionLeft {
     display: flex;
     flex-direction: column;
     .badge {
       font-size: 12px;
       padding: 4px 12px;
       color: var(--text-green);
-      background-color: rgba(34, 197, 94, 0.2);
+      background-color: rgba(28, 231, 102, 0.2);
       border: 1px solid var(--text-green);
       border-radius: 12px;
       width: 136px;
@@ -30,17 +30,17 @@ export const Main = styled.div`
       color: var(--white-color);
       margin-bottom: 20px;
       span {
-        color: var(--btn-green);
+        color: var(--main-color);
       }
     }
     p {
       font-size: 16px;
       font-weight: bold;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
       margin-bottom: 32px;
       line-height: 28px;
     }
-    .CoBu {
+    .ContainerButton {
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -51,22 +51,22 @@ export const Main = styled.div`
         gap: 3px;
         font-size: 14px;
         color: var(--white-color);
-        background-color: var(--btn-green);
-        border: 1px solid var(--btn-green);
+        background-color: var(--main-color);
+        border: 1px solid var(--main-color);
         border-radius: 12px;
         width: 186px;
         padding: 12px 28px;
         cursor: pointer;
         transition: background-color 0.5s ease;
         &:hover {
-          background-color: var(--btn-green-hover);
+          background-color: var(--main-color-hover);
         }
       }
       .BuTTQ {
         font-size: 14px;
         color: var(--white-color);
         background-color: transparent;
-        border: 1px solid var(--gray-text-400);
+        border: 1px solid var(--color-gray-400);
         border-radius: 12px;
         width: 50%;
         padding: 12px 28px;
@@ -79,7 +79,7 @@ export const Main = styled.div`
       }
     }
   }
-  .SeRight {
+  .SectionRight {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -91,7 +91,7 @@ export const Main = styled.div`
       justify-content: center;
       flex-direction: column;
       padding: 24px;
-      border: 1px solid var(--gray-text-400);
+      border: 1px solid var(--color-gray-200);
       border-radius: 12px;
       text-align: center;
       width: 100%;
@@ -104,7 +104,7 @@ export const Main = styled.div`
       }
       p {
         font-size: 14px;
-        color: var(--gray-text-400);
+        color: var(--gray-text-600);
       }
     }
   }

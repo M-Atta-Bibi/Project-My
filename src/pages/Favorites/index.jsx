@@ -27,7 +27,7 @@ const FavoritesPage = () => {
       />
       <Main>
         {favorites?.length === 0 && (
-          <div className="NoLenght">
+          <div className="NoLenghtSection">
             <FiHeart />
             <p>You haven't saved any products yet</p>
             <Button
@@ -37,7 +37,7 @@ const FavoritesPage = () => {
           </div>
         )}
         {favorites?.length > 0 && (
-          <div className="Lenght">
+          <div className="LenghtSection">
             {favorites?.map((item) => (
               <Grid Product={item} key={item.id} showDetails={true} />
             ))}

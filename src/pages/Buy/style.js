@@ -17,21 +17,21 @@ export const Main = styled.div`
         a {
           font-size: 14px;
           text-decoration: none;
-          color: var(--btn-green);
+          color: var(--main-color);
           &:hover {
-            color: var(--btn-green-hover);
+            color: var(--main-color-hover);
           }
         }
       }
     }
     .CoOrder {
       background-color: var(--white-color);
-      border: 1px solid var(--white-color);
+      border: 1px solid var(--color-gray-200);
       border-radius: 12px;
       padding: 24px;
       h3 {
         font-size: 16px;
-        color: var(--gray-text-800);
+        color: var(--dark-color);
         margin-bottom: 20px;
       }
       .CoHe {
@@ -41,7 +41,7 @@ export const Main = styled.div`
           justify-content: space-between;
           font-size: 12px;
           font-weight: bold;
-          color: var(--gray-text-500);
+          color: var(--color-gray-400);
           margin-bottom: 12px;
         }
         .CoTo {
@@ -49,12 +49,12 @@ export const Main = styled.div`
           align-items: center;
           justify-content: space-between;
           font-size: 16px;
-          color: var(--btn-green);
+          color: var(--main-color);
           margin-bottom: 12px;
           padding-top: 12px;
           border-top: 1px solid #dadee4;
           span {
-            color: var(--gray-text-800);
+            color: var(--dark-color);
             font-weight: bold;
           }
         }
@@ -64,20 +64,20 @@ export const Main = styled.div`
           justify-content: center;
           button {
             width: 100%;
-            background-color: var(--btn-green);
+            background-color: var(--main-color);
             color: var(--white-color);
-            border: 1px solid var(--btn-green);
+            border: 1px solid var(--main-color);
             border-radius: 12px;
             padding: 12px 24px;
             font-size: 14px;
             cursor: pointer;
             &:hover {
-              background-color: var(--btn-green-hover);
+              background-color: var(--main-color-hover);
             }
           }
         }
         p {
-          color: var(--gray-text-400);
+          color: var(--gray-text-600);
           font-size: 12px;
           margin: 12px 0;
           text-align: center;
@@ -89,12 +89,12 @@ export const Main = styled.div`
     padding: 80px 16px;
     text-align: center;
     svg {
-      color: #d1d5db;
+      color: var(--color-gray-200);
       font-size: 64px;
       margin-bottom: 16px;
     }
     p {
-      color: var(--gray-text-400);
+      color: var(--gray-text-600);
       font-size: 20px;
       margin-bottom: 24px;
     }
@@ -103,13 +103,13 @@ export const Main = styled.div`
       height: 100%;
       color: var(--white-color);
       font-size: 14px;
-      background-color: var(--btn-green);
+      background-color: var(--main-color);
       border: 1px solid #16a34a;
       border-radius: 12px;
       padding: 12px 32px;
 
       &:hover {
-        background-color: var(--btn-green-hover);
+        background-color: var(--main-color-hover);
       }
     }
   }
