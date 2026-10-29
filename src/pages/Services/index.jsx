@@ -4,7 +4,7 @@ import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import { Co1, Container } from "./style";
+import { ContainerPage, Main } from "./style";
 import { GetServices } from "../../services/Services/services.service";
 
 const Services = () => {
@@ -42,16 +42,16 @@ const Services = () => {
         title="Our Services"
         description="From web platforms to machine learning and robotics, we deliver end-to-end solutions."
       />
-      <Co1>
-        <Container>
+      <ContainerPage>
+        <Main>
           {data?.map((item) => (
             <div className="CoArticale" key={item.id}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>
           ))}
-        </Container>
-      </Co1>
+        </Main>
+      </ContainerPage>
       <Footer />
     </>
   );

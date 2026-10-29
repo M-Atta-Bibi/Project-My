@@ -7,7 +7,7 @@ export const LinkDetails = styled(Link)`
 export const Container = styled.div`
   background: var(--white-color);
   border-radius: 12px;
-  border: 2px solid #e5e7eb;
+  border: 1px solid var(--color-gray-200);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ export const Badge = styled.span`
   position: absolute;
   top: 12px;
   left: 12px;
-  background-color: var(--btn-green);
+  background-color: var(--main-color);
   color: var(--white-color);
   font-size: 12px;
   padding: 4px;
@@ -63,18 +63,18 @@ export const Content = styled.div`
 `;
 export const Category = styled.p`
   margin-bottom: 4px;
-  color: var(--gray-text-400);
+  color: var(--gray-text-600);
   font-size: 12px;
 `;
 export const Title = styled.h3`
-  color: var(--gray-text-900);
+  color: var(--dark-color);
   font-size: 14px;
   margin-bottom: 8px;
 `;
 export const Description = styled.p`
   font-size: 14px;
   margin-bottom: 12px;
-  color: var(--gray-text-400);
+  color: var(--color-gray-400);
   //    اظهار سطرين و متابعة ......
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -89,7 +89,7 @@ export const RatingRow = styled.div`
 `;
 export const RiviewsCount = styled.span`
   font-size: 12px;
-  color: var(--gray-text-400);
+  color: var(--color-gray-400);
 `;
 export const FooterRow = styled.div`
   display: flex;
@@ -97,11 +97,11 @@ export const FooterRow = styled.div`
   justify-content: space-between;
 `;
 export const Price = styled.div`
-  color: var(--btn-green);
+  color: var(--main-color);
   font-size: 16px;
   span {
     font-size: 12px;
-    color: var(--gray-text-400);
+    color: var(--gray-text-600);
   }
 `;
 export const Action = styled.div`
@@ -109,29 +109,35 @@ export const Action = styled.div`
   gap: 8px;
 `;
 export const Details = styled.div`
-  border: 1px solid #7d7d7d;
+  border: 1px solid var(--color-gray-200);
   border-radius: 8px;
   background-color: var(--white-color);
   padding: 6px 12px;
   font-size: 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
   a {
-    color: var(--gray-text-400);
+    color: var(--color-gray-400);
     font-weight: 600;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  &:hover {
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
   }
 `;
 export const Add = styled.button`
-  border: 2px;
+  border: 2px solid var(--main-color);
   border-radius: 8px;
-  background-color: var(--btn-green);
+  background-color: var(--main-color);
   color: var(--white-color);
   padding: 6px 12px;
   cursor: pointer;
   &:hover {
-    background-color: var(--btn-green-hover);
+    background-color: var(--main-color-hover);
+    border: 2px solid var(--main-color-hover);
   }
 `;

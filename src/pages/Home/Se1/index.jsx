@@ -10,7 +10,7 @@ const Se1 = () => {
   return (
     <Co1>
       <Main>
-        <div className="SeLeft">
+        <div className="SectionLeft">
           <span className="badge">Welcome to DKUST</span>
           <h1>
             Powering the Future with <span>Smart Technology</span>
@@ -20,7 +20,7 @@ const Se1 = () => {
             hardware solutions that help businesses automate, scale, and
             innovate faster than ever before.
           </p>
-          <div className="CoBu">
+          <div className="ContainerButton">
             <Button
               onClickFunction={() => navigation(pathConstants.Products)}
               label="Explore Products"
@@ -35,7 +35,7 @@ const Se1 = () => {
           </div>
         </div>
 
-        <div className="SeRight">
+        <div className="SectionRight">
           <div className="Co4">
             <h3>12K+</h3>
             <p>Happy Clients</p>

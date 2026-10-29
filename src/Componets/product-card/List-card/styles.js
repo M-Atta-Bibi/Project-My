@@ -6,7 +6,7 @@ export const LinkDetails = styled(Link)`
 export const Container = styled.div`
   background: var(--white-color);
   border-radius: 12px;
-  border: 2px solid #e5e7eb;
+  border: 1px solid var(--color-gray-200);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: row;
@@ -59,15 +59,15 @@ export const HeaderRow = styled.div`
 export const Badge = styled.span`
   top: 12px;
   left: 12px;
-  background-color: #b5ffb4;
-  color: #027b00;
+  background-color: var(--main-color);
+  color: var(--white-color);
   font-size: 13px, bold;
   padding: 4px;
   border-radius: 8px;
   margin-bottom: 0;
 `;
 export const Price = styled.div`
-  color: #10df0c;
+  color: var(--main-color);
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@ export const Price = styled.div`
       background-color: var(--white-color);
       width: 37px;
       height: 37px;
-      border: 1px solid #d4d7e0;
+      border: 1px solid var(--color-gray-200);
       border-radius: 0;
       border-end-start-radius: 12px;
       border-start-start-radius: 12px;
@@ -91,7 +91,7 @@ export const Price = styled.div`
       background-color: var(--white-color);
       width: 37px;
       height: 37px;
-      border: 1px solid #d4d7e0;
+      border: 1px solid var(--color-gray-200);
       border-radius: 0;
       border-start-end-radius: 12px;
       border-end-end-radius: 12px;
@@ -101,7 +101,7 @@ export const Price = styled.div`
       background-color: var(--white-color);
       width: 37px;
       height: 37px;
-      border: 1px solid #d4d7e0;
+      border: 1px solid var(--color-gray-200);
       border-right: none;
       border-left: none;
       display: flex;
@@ -113,12 +113,11 @@ export const Price = styled.div`
     display: flex;
     p {
       font-size: 12px;
-      color: #9ca3af;
+      color: var(--gray-text-600);
     }
   }
 `;
 export const Content = styled.div`
-  padding-block-end: ${({ showBuy }) => (showBuy ? "0" : "20px")};
   padding-inline-start: 20px;
   display: flex;
   flex-direction: column;
@@ -129,7 +128,7 @@ export const Content = styled.div`
     justify-content: flex-end;
     svg {
       font-size: 16px;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
       &:hover {
         color: red;
       }
@@ -137,19 +136,19 @@ export const Content = styled.div`
   }
 `;
 export const Title = styled.h3`
-  color: #111827;
+  color: var(--dark-color);
   margin-top: 1px;
   margin-bottom: 0;
   font-size: 18px;
 `;
 export const Category = styled.p`
-  color: #6b7280;
+  color: var(--gray-text-600);
   font-size: 14px;
   margin-top: 1px;
 `;
 export const Description = styled.p`
   font-size: 16px;
-  color: #525867;
+  color: var(--color-gray-400);
   margin-top: 2px;
   //    اظهار سطرين و متابعة ......
   display: -webkit-box;
@@ -168,13 +167,10 @@ export const RatingRow = styled.div`
   align-items: center;
   gap: 6px;
   margin-top: 4px;
-  color: #6b7280;
+  color: var(--color-gray-400);
   font-size: 14px;
 `;
-export const RiviewsCount = styled.span`
-  font-size: 14px;
-  color: #9ca3af;
-`;
+
 export const Action = styled.div`
   display: flex;
   gap: 8px;
@@ -182,10 +178,10 @@ export const Action = styled.div`
 export const Details = styled.button`
   height: 35px;
   width: 100px;
-  border: 1px solid #10df0c;
+  border: 1px solid var(--main-color);
   border-radius: 8px;
   background-color: var(--white-color);
-  color: #10df0c;
+  color: var(--main-color);
   padding: 2px;
   cursor: pointer;
 `;
@@ -194,11 +190,11 @@ export const Add = styled.button`
   width: 100px;
   border: 2px;
   border-radius: 8px;
-  background-color: #10df0c;
+  background-color: var(--main-color);
   color: var(--white-color);
   padding: 2px;
   cursor: pointer;
   &:hover {
-    background-color: #079504;
+    background-color: var(--main-color-hover);
   }
 `;

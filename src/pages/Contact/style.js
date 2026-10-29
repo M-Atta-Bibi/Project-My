@@ -8,14 +8,14 @@ export const Main = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 64px 20px;
-  .CoInput {
+  .FailSection {
     width: 448px;
     background-color: var(--white-color);
     padding: 40px 32px;
     border-radius: 12px;
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
-    .SubmitB {
-      background-color: var(--btn-green);
+    button {
+      background-color: var(--main-color);
       color: var(--white-color);
       border: none;
       border-radius: 8px;
@@ -26,7 +26,7 @@ export const Main = styled.div`
       margin: 20px 0;
       font-size: 14px;
       &:hover {
-        background-color: var(--btn-green-hover);
+        background-color: var(--main-color-hover);
       }
     }
     #Message {
@@ -37,7 +37,7 @@ export const Main = styled.div`
       resize: vertical;
     }
   }
-  .SuccessMessage {
+  .SuccessSection {
     padding: 64px 24px;
     div {
       display: flex;
@@ -64,12 +64,12 @@ export const Main = styled.div`
       h2 {
         margin-bottom: 8px;
         font-size: 32px;
-        color: var(--gray-text-900);
+        color: var(--dark-color);
       }
       p {
         margin-bottom: 16px;
         font-size: 16px;
-        color: var(--gray-text-900);
+        color: var(--dark-color);
       }
     }
   }

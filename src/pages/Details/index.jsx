@@ -15,7 +15,7 @@ import {
   GetProductsById,
 } from "../../services/Products/products.service";
 import i18next from "i18next";
-import { ContainerDetails, ContainerDetailsPage, Main } from "./style";
+import { DetailsProduct, Main } from "./style";
 
 const DetailsPage = () => {
   // Hoks
@@ -92,36 +92,36 @@ const DetailsPage = () => {
       <Header />
       <Main>
         {/*-------------------مسار المنتج---------------------*/}
-        <div className="CoLoc">
-          <div className="containerLocation">
-            <p className="H">{t("Home")}</p>
-            <p className="N">/</p>
-            <p className="H">{t("Products")} </p>
-            <p className="N">/</p>
-            <p className="N">{data?.name?.[activeLanguage]}</p>
+        <div className="product-path-section">
+          <div className="breadcrumb-nav">
+            <p className="breadcrumb-item">{t("Home")}</p>
+            <p className="breadcrumb-item-active">/</p>
+            <p className="breadcrumb-item">{t("Products")} </p>
+            <p className="breadcrumb-item-active">/</p>
+            <p className="breadcrumb-item-active">
+              {data?.name?.[activeLanguage]}
+            </p>
           </div>
         </div>
         {/*-----------------------قسم العرض-------------------*/}
-        <ContainerDetailsPage>
-          <div id="back">
-            <p className="a">
+        <DetailsPage>
+          <div className="Container">
+            <p className="back-navigation">
               <Link to="/products">{t("← Back to Products")}</Link>
             </p>
             {/*--------------------لعرض المصفوفة الخاصة ب منتج--------------------------*/}
-            <ContainerDetails>
+            <DetailsProduct>
               <ProductDetails
                 product={data}
                 Feature={Feature}
                 Quentity={Quentity}
                 CounterQty={CounterQty}
               />
-            </ContainerDetails>
+            </DetailsProduct>
             {/*--------------------------- */}
-
-            <div className="R-Text">
+            <div className="Related-title">
               <h3>{t("Related Products")}</h3>
             </div>
-
             {/*-------------تطبيق ال SWIPER-------------- */}
             <Swiper
               slidesPerView={1}
@@ -137,7 +137,7 @@ const DetailsPage = () => {
               ))}
             </Swiper>
           </div>
-        </ContainerDetailsPage>
+        </DetailsPage>
       </Main>
       <Footer />
     </>

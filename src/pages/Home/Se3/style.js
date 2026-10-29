@@ -25,17 +25,17 @@ export const Main = styled.div`
       align-items: center;
       justify-content: center;
       svg {
-        color: var(--btn-green);
+        color: var(--main-color);
         font-size: 20px;
       }
     }
     h3 {
       font-size: 16px;
-      color: var(--gray-text-800);
+      color: var(--dark-color);
     }
     p {
       font-size: 14px;
-      color: var(--gray-text);
+      color: var(--color-gray-400);
     }
   }
 `;

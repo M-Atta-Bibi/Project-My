@@ -18,7 +18,7 @@ export const Hero = styled.div`
     margin-top: 25px;
     .badge-normal {
       background-color: rgba(255, 255, 255, 0.15);
-      color: var(--white-color);
+      color: var(--color-gray-200);
       padding: 8px 24px;
       border-radius: 20px;
       font-size: 14px;

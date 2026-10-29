@@ -2,27 +2,27 @@ import styled from "styled-components";
 
 export const ContainerCard = styled.div`
   background: var(--white-color);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-gray-200);
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   margin-bottom: 24px;
   h3 {
     font-size: 14px;
-    color: var(--gray-text-900);
+    color: var(--dark-color);
     margin-bottom: 16px;
     text-align: start;
   }
 `;
 export const ContainerQ = styled.label`
   display: flex;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-gray-200);
   border-radius: 12px;
   margin-bottom: 12px;
   padding: 12px 16px;
   cursor: pointer;
   background-color: var(--white-color);
-  color: var(--gray-text);
+  color: var(--color-gray-500);
   label {
     font-size: 14px;
     margin-bottom: 8px;
@@ -35,32 +35,32 @@ export const ContainerQ = styled.label`
     width: 14px;
     height: 14px;
     margin: 0 14px;
-    accent-color: var(--btn-green);
+    accent-color: var(--main-color);
   }
   &:has(input:checked) {
-    background-color: #eefff0;
-    border: 2px solid #4ecf55;
-    color: var(--btn-green);
+    background-color: var(--background-perfect);
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
     font-weight: bold;
   }
   &:hover {
     border: 0.5px solid #4ecf55;
-    background-color: #f3fff3;
+    background-color: var(--backgroud-pr);
   }
   &.correct {
-    background-color: #ebfdeb;
+    background-color: var(--background-perfect);
     border: 2px solid #4ecf55;
-    color: var(--btn-green);
+    color: var(--main-color);
     input {
-      accent-color: var(--btn-green);
+      accent-color: var(--main-color);
     }
   }
   &.wrong {
-    background-color: #ffeeee !important;
+    background-color: var(--background-fail) !important;
     border: 2px solid #c94747 !important;
     color: #9b1c1c !important;
     input {
-      accent-color: #8f8f8f;
+      accent-color: var(--gray-text-600);
     }
   }
 `;

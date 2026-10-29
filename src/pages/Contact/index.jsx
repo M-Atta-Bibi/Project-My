@@ -84,19 +84,15 @@ const Contact = () => {
       <Main success={isSubmitted}>
         {!isSubmitted ? (
           <Form onSubmit={Formik.handleSubmit}>
-            <div className="CoInput">
+            <div className="FailSection">
               {Fields?.map((item) => (
                 <InputProvider key={item.name} itemObject={item} />
               ))}
-              <Button
-                className="SubmitB"
-                type="submit"
-                label={t("Send Message")}
-              />
+              <Button type="submit" label={t("Send Message")} />
             </div>
           </Form>
         ) : (
-          <div className="SuccessMessage">
+          <div className="SuccessSection">
             <div>
               <span>
                 <FiCheck size={24} />

@@ -2,7 +2,7 @@ import Footer from "../../Componets/Footer/Footer";
 import Header from "../../Componets/Header/Header";
 import PageHero from "../../Componets/page-hero";
 import { useTranslation } from "react-i18next";
-import { Co1, Container } from "./style";
+import { ContainerPage, Main } from "./style";
 
 const About = () => {
   // Hooks
@@ -12,8 +12,8 @@ const About = () => {
     <>
       <Header />
       <PageHero title="About Hero Title" description="About Hero Description" />
-      <Co1>
-        <Container>
+      <ContainerPage>
+        <Main>
           <div className="CoArticale">
             <h2>{t("Our story")}</h2>
             <p>
@@ -22,8 +22,8 @@ const About = () => {
               )}
             </p>
           </div>
-        </Container>
-      </Co1>
+        </Main>
+      </ContainerPage>
       <Footer />
     </>
   );

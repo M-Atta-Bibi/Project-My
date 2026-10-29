@@ -8,7 +8,7 @@ export const Container = styled.footer`
   width: 100%;
   font-size: 12px;
 `;
-export const FooterContainer = styled.div`
+export const Main = styled.div`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -20,10 +20,10 @@ export const FooterContainer = styled.div`
     padding: 0 24px 24px 24px;
   }
 `;
-export const FooterColumn = styled.div`
+export const UpperSection = styled.div`
   width: 100%;
 
-  .A {
+  .ContainerColumns {
     padding: 20px 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -36,29 +36,29 @@ export const FooterColumn = styled.div`
       padding: 0;
     }
   }
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: 1px solid var(--color-gray-200);
 `;
-export const FooterSaction = styled.div`
+export const ColumnContent = styled.div`
   flex: 1;
   p {
-    color: var(--text-muted);
+    color: var(--color-gray-400);
   }
   h5 {
     font-size: 12px;
     margin-bottom: 20px;
+    color: var(--dark-color);
   }
   ul {
     list-style: none;
   }
   li {
     margin-bottom: 10px;
-    color: var(--text-muted);
     a {
-      color: var(--text-muted);
+      color: var(--color-gray-400);
       text-decoration: none;
       transition: color 0.3s ease;
       &:hover {
-        color: var(--text-muted-hover);
+        color: var(--main-color-hover);
       }
     }
   }
@@ -82,14 +82,14 @@ export const SubmitButton = styled.form`
   button {
     width: 42px;
     height: 42px;
-    background-color: var(--btn-green);
-    border: 1px solid var(--btn-green);
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
     border-radius: 0;
     border-start-end-radius: 5px;
     border-end-end-radius: 5px;
     cursor: pointer;
     &:hover {
-      background-color: #00b067;
+      background-color: var(--main-color-hover);
     }
   }
   &:focus-within {
@@ -100,14 +100,14 @@ export const SubmitButton = styled.form`
     min-width: 0;
   }
 `;
-export const FooterIcons = styled.div`
+export const SectionIcons = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px auto 0 auto;
   p {
-    color: #a5b3c6;
+    color: var(--color-gray-400);
   }
   div {
     display: flex;
@@ -121,11 +121,11 @@ export const FooterIcons = styled.div`
       height: 32px;
       border-radius: 50%;
       font-size: 18px;
-      color: #a5b3c6;
+      color: var(--color-gray-400);
       cursor: pointer;
       &:hover {
-        background-color: #00c875;
-        color: wheat;
+        background-color: var(--main-color-hover);
+        color: var(--white-color);
       }
     }
   }
